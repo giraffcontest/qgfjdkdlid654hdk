@@ -1,0 +1,931 @@
+
+	<html>
+	    <head>
+	        <meta charset="UTF-8">
+	        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	        <title>Жираф - Клуб любителей розыгрышей</title>
+	        <style>
+	            pre {
+	                white-space: pre-wrap;       /* css-3 */
+	                white-space: -moz-pre-wrap;  /* Mozilla, с 1999 */
+	                white-space: -pre-wrap;      /* Opera 4-6 */
+	                white-space: -o-pre-wrap;    /* Opera 7 */
+	                word-wrap: break-word;       /* Internet Explorer 5.5+ поддерживается в IE, Safari, и Firefox 3.1.*/
+	                }
+
+
+	            .lazy {
+	                display: inline-block;
+	                min-width: 200px; /* Задаем минимальную ширину */
+	                }
+
+	            @import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
+	            *{
+	                margin:0;
+	                padding: 0;
+	                box-sizing: border-box;
+
+	            }
+	            /*  Главная страница VK (profile) */
+	            body{
+	                background-color: #edeef0;
+	            }
+
+
+	/* Скрываем body до проверки */
+	body.pre-check {
+	  display: none !important;
+	}
+
+	            .page{
+	                display: flex;
+	                flex-direction: column;
+	                justify-content: center; /* Выравнивание по горизонтали */
+	                background-color: #edeef0;
+	                color: #404040;
+	                font-family: 'Dela Gothic One', cursive;
+	                font-family: 'Sofia Sans Extra Condensed', sans-serif;
+
+	                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	                font-size: 14px;/**/
+	                /* height: 49px; */
+	                /* box-shadow:0 3px rgb(255, 255, 255); */
+	            }
+
+	            .page_header{
+	                display: flex;
+	                background-color: #222;
+	                color: white;
+	                font-family: 'Dela Gothic One', cursive;
+	                font-family: 'Sofia Sans Extra Condensed', sans-serif;
+
+	                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	                font-size: 22px;
+	                /* height: 49px; */
+	                /* box-shadow:0 3px rgb(255, 255, 255); */
+	            }
+
+	            .iconify{
+	                display: flex;
+	                flex-direction: column;
+	                color: rgb(113,170,235); 
+	                font-size: 18px;
+	                justify-content: center;
+	                align-items: center;
+	            }
+
+	            a {
+	                display: flex;
+	                text-decoration: none; 
+	                align-items: center;
+	                color: #46588d;
+	            }
+
+	            .info{
+	                width: 100%;
+	                height: 100vh;
+	            }
+
+	            .upper{
+	                position: relative;
+	                border-radius: 18px;
+	                height: 365px;
+	                width: 100%;
+	                max-width: 600px;
+	                /* background: linear-gradient(#e66465, #9198e5); */
+	                background-image: url(../img/car.jpg);
+	                background-size: contain;
+	                border: 0.01px solid rgb(61, 61, 61);
+	                border-radius: 17px;
+	            }
+
+	            .profile_down{
+	                background-color: #222;
+	                position: absolute;
+	                bottom: 0;
+	                display: flex;
+	                height: 33%;
+	                width: 100%;
+	                padding: 10px;
+	                border-radius: 15px;
+	                box-shadow: 0px -26px 20px 0px rgb(0 0 0 / 24%);
+	                /* горизонт, вертик, размыт, толщина, цвет */
+	            }
+
+	            .profile_flex{
+	                display: flex;
+	                justify-content: space-between;
+	                align-items: center;
+	                width: 100%;
+	            }
+
+	            .profile_pic{
+	                width: 150px;
+	                height: 150px;
+	                margin-bottom: 49px;
+	                padding-bottom: 50px;
+	                border: 3px solid #222;
+	                border-radius: 100px;
+	                min-width: 150px;
+	            }
+
+	            .profile_pic img{
+	                width: 100%;
+	                border-radius: 100px;
+	            }
+
+	            .profile_name{
+	                display: flex;
+	                flex-direction: column;
+	            }
+
+	            .profile_buttons{
+	                display: flex;
+	                text-align: right;
+	                justify-content: space-between;
+	                cursor: pointer;
+	            }
+
+	            .btn{
+	                display: flex;
+	                margin-inline: 3px;
+	                flex-direction: row;
+	                padding: 5px;
+	                background: #333;
+	                box-shadow: none;
+	                border: 0;
+	                border-radius: 10px;
+	                justify-content: center;
+	                align-items: center;
+	                text-align: center;
+	                height: 40px;
+	            }
+
+	            .btn.SMS{
+	                width: 120px;
+	            }
+
+	            .btn.MORE{
+	                display: flex;
+	                justify-content: center;
+	                text-align: center;
+	            }
+
+	            .profile_buttons a:hover{
+	                background: #3c3c3c;
+	            }
+
+	            .line{
+	                margin-block: 15px;
+	                width: 100%;
+	                height: 1px;
+	                background-color: rgb(61, 61, 61);
+	            }
+
+	            .info_middle2{
+	                display: flex;
+	                width: 100%;
+	                max-width: 600px;
+	                border-radius: 17px;
+	                margin-inline: auto;
+	            }
+
+	            .info_middle-left2{
+	                display: flex;
+	                flex-direction: column;
+	                width: 100%;
+	                max-width: 600px;
+	                /*border-radius: inherit;*/
+	                /*background-color: #ffffff;*/
+	                padding: 13px;
+	                box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+	                background-image: linear-gradient(to bottom right, #f9fafc, #ffffff);
+	                border-radius: inherit;
+	                filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.25));
+	                box-shadow: inset 2px 2px 2px white, inset -1px -1px 1px rgba(0, 0, 0, 0.25);
+	            }
+
+	            .info_middle_left2_upper{
+	                display: flex;
+	                height: max-content;
+	                width: 100%;
+	                justify-content: space-between;
+	            }
+
+	            .zapisi a{
+	                display: flex;
+	                font-size: 16px;
+	                background: #2a5885;
+	                border-radius: 9px;
+	                padding-inline: 9px;
+	                padding-block: 3px;
+	                width: max-content;
+	                border: 0.01px solid rgb(61, 61, 61);
+	            }
+
+	            .line1{
+	                position: relative;
+	                margin-block: 15px; 
+	                width: 100%;
+	                height: 1px;
+	                /* transform: translate(-3%); */
+	                background-color: rgb(180, 180, 180);
+	            }
+
+	            .profile_post_size{
+	                display: flex;
+	                align-items: center;
+	            }
+
+	            .profile_post_size img{
+	                width: 40px;
+	                border-radius: 50px;
+	            }
+
+	            .profile_post_pic a{
+	                display: flex;
+	                justify-content: center;
+	                text-align: center;
+	                height: 100%;
+	                font-size: 15px;
+	                color: red;
+	            }
+
+	            .profile_post_name_status{
+	                margin-left: 8px;
+	            }
+
+	            .profile_post_name_status p{
+	                font-size: 14px;
+	                color: #7f7f7f;
+	            }
+
+	            .profile_post_name_status a{
+	                font-size: 14px;
+	            }
+
+	            .profile_post_name img{
+	                margin-left: 2px;
+	                align-items: center;
+	            }
+
+	            .status_upper img{
+	                width: 15px;
+	            }
+
+	            .profile_post_information img{
+	                width: 100%;
+	                border-radius: 12px;
+	                object-fit: contain;
+	            }
+
+	            .profile_post_information p{
+	                text-align: justify;
+	                word-wrap: break-word;
+	            }
+
+	            .profile_rating{
+	                display: flex;
+	                margin-top: 8px;
+	                justify-content: space-between;
+	            }
+
+	            .profile_rating_left{
+	                display: flex;
+	            }
+
+	            .likes{
+	                display: flex;
+	                padding-block: 5px;
+	                padding-inline: 8px;
+	                cursor: default;
+	                align-items: center;
+	            }
+
+	            .likes p{
+	                margin-left: 4px;
+	                color: #828282;
+	            }
+
+	            .share{
+	                display: flex;
+	                margin-left: 5px;
+	                padding-block: 5px;
+	                padding-inline: 8px;
+	                cursor: default;
+	            }
+
+	            .profile_rating_right{
+	                display: flex;
+	                justify-content: center;
+	                text-align: center;
+	            }
+
+	            .viewers{
+	                display: flex;
+	                align-items: center;
+	            }
+
+	            .viewers p{
+	                margin-left: 4px;
+	                color: #828282;
+	                cursor: default;
+	            }
+
+	            .limiter {
+	                max-height: 130px;
+	                overflow: hidden;
+	                position: relative;
+	            }
+
+	            .limiter .bottom {
+	                position: absolute;
+	                bottom: 0;
+	                background: linear-gradient(
+	                  to bottom,
+	                  rgb(255 217 29 / 0%),
+	                  rgb(255 255 255)85%);
+	                width: 100%;
+	                height: 60px;
+	                opacity: 1;
+	                transition: 0.3s;
+	            }
+
+	            [data-more-checker^="read-more"] {
+	                opacity: 0;
+	                position: absolute;
+	            }
+
+	            [data-more-checker^="read-more"]:checked ~ .limiter {
+	                max-height: none;
+	            }
+
+	            [data-more-checker^="read-more"]:checked ~ .limiter .bottom {
+	                opacity: 0;
+	                transition: 0.3s;
+	            }
+
+	            [data-more-checker^="read-more"] ~ .read-more-button:before  {
+	                content: "Показать ещё...";
+	            }
+
+	            [data-more-checker^="read-more"]:checked ~ .read-more-button:before {
+	                content: "Свернуть";
+	            }
+
+	            .read-more-button {
+	                cursor: pointer;
+	                display: inline-block;
+	                color: #777;
+	                text-decoration: underline;
+	            }
+
+	            .dropdown {
+	                position: relative;
+	                display: inline-block;
+	                text-align: right;
+	            }
+
+	            .dropdown-btn {
+	                font-size: 16px;
+	                border: none;
+	                outline: none;
+	                background-color: inherit;
+	                cursor: pointer;
+	                padding-left: 16px;
+	            }
+
+	            .dropdown-content {
+	                display: none;
+	                position: absolute;
+	                z-index: 1;
+	                background-color: #ffffff;
+	                min-width: 160px;
+	                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	                padding: 12px 16px;
+	                text-align: right;
+	                right: 0;
+	                border-radius: 8px; /* Добавляем закругление */
+	            }
+
+	            .dropdown:hover .dropdown-content {
+	                display: block;
+	            }
+
+	            .dropdown-content a {
+	                display: block;
+	                max-width: 100%; /* Устанавливаем максимальную ширину, чтобы ссылка не выходила за границы родительского элемента */
+	                white-space: nowrap;
+	                overflow: hidden;
+	                text-overflow: ellipsis;
+	            }
+
+	            a:visited {
+	                color: #acb5cc; /* Цвет посещенных ссылок */
+	            }
+
+	            .tooltipable::after {
+	                content: attr(data-tooltip); /* Используем значение атрибута data-tooltip */
+	                display: none;
+	                position: absolute;
+	                background-color: #ffffff;
+	                color: #828282;
+	                padding: 5px;
+	                border-radius: 4px;
+	                z-index: 1000;
+	                pointer-events: none;
+	                margin-top: 5px;
+	            }
+
+	            .tooltipable:hover::after {
+	                display: block;
+	            }
+
+	            .buttons {
+	                display: flex;
+	                flex-direction: column;
+	                margin-bottom: 20px;
+	            }
+
+	            .btn {
+	                padding: 10px;
+	                border: none;
+	                cursor: pointer;
+	                width: 100%;
+	                margin-bottom: 10px;
+	                text-align: left;
+	                display: flex;
+	                justify-content: flex-start;
+	                align-items: center;
+	            }
+
+	            .btn.active {
+	                background-color: #4CAF50;
+	                color: white;
+	            }
+
+	            .btn:not(.active) {
+	                background-color: #f0f0f0;
+	                color: #46588d;
+	            }
+
+	            .post {
+	                padding: 10px;
+	                margin-bottom: 10px;
+	                display: none;
+	            }
+
+	            .post.show {
+	                display: flex;
+	            }
+
+	            select {
+	                background-color: #ffffff;
+	                background-image: url( https://www.crcna.org/sites/all/themes/zen_crcna/images/select-arrow@3x.jpg);
+	                background-position: right -15px;
+	                background-repeat: no-repeat;
+	                background-size: 30px 120px;
+	                padding-right: 40px;
+	                border: 1px solid $border-color;
+	                -moz-border-radius: 4px;
+	                -webkit-border-radius: 4px;
+	                border-radius: 4px;
+	                -moz-appearance: none;
+	                -webkit-appearance: none;
+	                appearance: none;
+
+	                /* CRCNA SPECIFIC */
+	                padding-top: 6px;
+	                padding-bottom: 6px;
+	                padding-left: 6px;
+	                font-size: 12px;
+	                line-height: 18px;
+	                color: #4e4e4e;
+	                min-height: 18px;
+
+	                &:focus {
+	                    outline: none;
+	                    border-color: darken($border-color, 10%);
+	                    background-position: right -75px;
+	                }
+
+	                &:disabled { /* selectric */
+	                    filter: alpha(opacity=50);
+	                    opacity: 0.5;
+	                    cursor: default;
+	                    user-select: none;
+	                }
+	            }
+
+
+	            .highlight {
+	                background-color: yellow;
+	                padding: 0 2px;
+
+	        </style>
+
+	        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	        <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+	        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+	        <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+	        <link rel="preconnect" href="https://fonts.googleapis.com">
+	        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	        <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Sofia+Sans+Extra+Condensed:wght@1;200;400;800&display=swap" rel="stylesheet">
+
+
+
+
+
+	<script>
+
+	    function createErrorPage(message) {
+	        return `
+	            <!DOCTYPE html>
+	            <html>
+	            <head>
+	                <style>
+	                    body {
+	                        display: flex;
+	                        justify-content: center;
+	                        align-items: center;
+	                        height: 100vh;
+	                        margin: 0;
+	                        font-family: Arial, sans-serif;
+	                        background-color: #f8f9fa;
+	                        color: #dc3545;
+	                    }
+	                    .error-container {
+	                        text-align: center;
+	                        padding: 20px;
+	                        border: 2px solid #dc3545;
+	                        border-radius: 10px;
+	                        background-color: white;
+	                        max-width: 80%;
+	                    }
+	                    h1 {
+	                        font-size: 24px;
+	                        margin-bottom: 10px;
+	                    }
+	                </style>
+	            </head>
+	            <body>
+	                <div class="error-container">
+	                    <h1>${message}</h1>
+	                    <p>Пожалуйста, запросите новую ссылку</p>
+	                </div>
+	            </body>
+	            </html>
+	        `;
+	    }
+
+
+
+
+
+	  document.addEventListener('DOMContentLoaded', function() {
+	                const urlParams = new URLSearchParams(window.location.search);
+	                const trustedParam = urlParams.get('t');
+
+	                if (trustedParam !== '1') {
+	        document.write(createErrorPage('Ошибка загрузки.'));
+	        document.close(); // Останавливаем загрузку
+
+	                    return; 
+	                }else{
+	                document.body.classList.remove('pre-check');
+	                }
+	            });   
+
+
+	</script>
+
+
+	        <script>
+
+
+
+	            $(document).ready(function() {
+	                // Функция для загрузки изображения по заданному источнику из атрибута data-src
+	                function loadImage(img) {
+	                    const src = img.getAttribute('data-src');
+	                    if (!src) {
+	                        return; // Если нет источника, функция завершается
+	                    }
+	                    img.src = src; // Устанавливаем источник изображения
+	                }
+
+	                // Используем Intersection Observer API для реализации ленивой загрузки изображений
+	                const observer = new IntersectionObserver((entries, observer) => {
+	                    entries.forEach(entry => {
+	                        if (entry.isIntersecting) { // Проверяем, пересекает ли элемент область видимости
+	                            const img = entry.target;
+	                            loadImage(img); // Загружаем изображение
+	                            observer.unobserve(img); // Отключаем наблюдение за элементом после загрузки
+	                        }
+	                    });
+	                }, {
+	                    rootMargin: '0px 0px 2000px 0px', // Добавляем дополнительное расстояние от области видимости снизу
+	                });
+
+	                // Находим все изображения с классом .lazy и начинаем их наблюдение
+	                const lazyImages = $('.lazy'); // Используем селектор jQuery
+	                lazyImages.each(function() {
+	                    observer.observe(this); // this указывает на текущий элемент в цикле each
+	                });
+	            });
+
+	        </script>
+	    </head>
+
+	    <body class="pre-check">
+	        <div class="page">
+	            <div class="posts">
+	
+			<div class="post show">
+			    <div class="info_middle2 style="--accent-color: #D00903"">
+			        <div class="info_middle-left2">
+			           
+
+			            <div class="profile_rating">
+			                <div class="profile_rating_left">
+			                    <div class="profile_post_size">
+			                        <div class="profile_post_pic">
+			                            <a href="https://vk.com/wall-142122035_1269" target="_blank"><img src="https://sun9-29.userapi.com/s/v1/ig2/UHHl46zG8oonXmIGAWS_X9om1DmCn9lbfyRsuMOpX2FluQRFz_PhJzOCkcIsI_gyoG2OuJOWtQ13p7_yrZk15X-G.jpg?quality=95&crop=0,1,899,899&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720&ava=1&cs=50x50" alt=""></a>
+			                        </div>
+
+			                        <div class="profile_post_name_status">
+			                            <a href="https://vk.com/wall-142122035_1269" target="_blank">CATHERINE JEWELRY • Ювелирные украшения</a>
+			                            <a style="color: #7f7f7f;" href="https://vk.com/wall-142122035_1269" target="_blank">2025-05-07</a>
+			                        </div>
+
+			                    </div>
+			                </div>
+			            </div>        
+
+			            <br>
+
+			            <div class="profile_post_information">
+			                <div class="block">
+			                    <input type="checkbox" id="-142122035_1269" data-more-checker="read-more" />
+			                    <div class="limiter">
+			                        <p>Розыгрыш ювелирных украшений от CATHERINE JEWELRY. <br>  <br> Разыгрываем серебряные украшения среди наших подписчиков: стильное колье и оригинальные пусеты! <br>  <br> Условия участия: <br>  <br> - быть подписчиком нашего сообщества [club142122035 CATHERINE JEWELRY]; <br> - поставить лайк этому посту;  <br> - написать один любой комментарий под этим постом; <br> - подписаться на нашу рассылку [https://vk.com/app5898182_-142122035#s=3161300 здесь] <br>  <br> Уже 17 мая мы подведем итоги розыгрыша и определим двух победителей с помощью рандомайзера. Каждый из победителей получит один из двух призов. <br>  <br> Важно: <br>  <br> - без подписки на рассылку мы не сможем уведомить вас о выигрыше и отправке приза; <br> - в розыгрыше участвуют жители всей РФ, отправка приза за счет организатора розыгрыша. <br>  <br> Желаем удачи!
+</p>
+			                    </div>    
+			                    <div class="bottom">
+			                    </div>
+			                    <label for="-142122035_1269" class="read-more-button"></label>
+			                </div>
+			                <br>
+			                <img data-src="https://sun9-25.userapi.com/s/v1/ig2/qxG_w4JQeTcHHIDzK7TAl2N2CMzZcEp-oRJC4pMHj1Ei72RrX9s20411AWEpMhJTdCJVSRnX3ChmzJ0E2G4j0SBH.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&from=bu&cs=807x807" width="400" alt="" class="lazy">
+			            </div>
+
+			            <div class="profile_rating">
+			                <div class="profile_rating_left">
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+			                        <p>272</p>
+			                    </div>
+
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+			                        <p>183</p>
+			                    </div> 
+
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+			                        <p>230</p>
+			                    </div> 
+			                </div>
+
+			                <div class="profile_rating_right">
+			                    <div class="viewers">
+			                        <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+			                        <p>7760</p>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+
+			    <br>
+
+			</div>
+			
+			<div class="post show">
+			    <div class="info_middle2 style="--accent-color: #D00903"">
+			        <div class="info_middle-left2">
+			           
+
+			            <div class="profile_rating">
+			                <div class="profile_rating_left">
+			                    <div class="profile_post_size">
+			                        <div class="profile_post_pic">
+			                            <a href="https://vk.com/wall-172598718_5541" target="_blank"><img src="https://sun9-57.userapi.com/s/v1/ig2/9zTn_oIOdqha2twyTpGabzrwsd82TKfY4C9zZRA7D3hCrzKU-Q7UoPWNWYUPRVihmbHwqDHf_9QBNDGu_XAzQD1f.jpg?quality=95&crop=0,0,1000,1000&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720&ava=1&cs=50x50" alt=""></a>
+			                        </div>
+
+			                        <div class="profile_post_name_status">
+			                            <a href="https://vk.com/wall-172598718_5541" target="_blank">OVERCON | Киберспорт и Фиджитал Нижний Новгород</a>
+			                            <a style="color: #7f7f7f;" href="https://vk.com/wall-172598718_5541" target="_blank">2025-04-29</a>
+			                        </div>
+
+			                    </div>
+			                </div>
+			            </div>        
+
+			            <br>
+
+			            <div class="profile_post_information">
+			                <div class="block">
+			                    <input type="checkbox" id="-172598718_5541" data-more-checker="read-more" />
+			                    <div class="limiter">
+			                        <p>Розыгрыш механической клавиатуры от Redragon <br>  <br> OVERCON Online League радует началом плей-офф этапов, а Redragon радует розыгрышем компактной клавиатуры Redragon Ryze <br>  <br> Это компактное устройство с трехцветной RGB-подсветкой, уникальным дизайном и надежными механическими переключателями <br>  <br> Как поучаствовать: <br> 1) Подпишись на [club172598718 OVERCON] и [club101069992 Redragon] в ВК <br> 2) Поставь лайк этому посту <br> 3) Напиши в комментах самый креативный способ использования этой клавиатуры <br>  <br> Итоги подведем 17 мая на итоговом награждении OVERCON Online League в Нижнем Новгороде <br>  <br> Погрузитесь в удивительный мир игр и работы с Redragon
+</p>
+			                    </div>    
+			                    <div class="bottom">
+			                    </div>
+			                    <label for="-172598718_5541" class="read-more-button"></label>
+			                </div>
+			                <br>
+			                <img data-src="https://sun9-73.userapi.com/s/v1/ig2/uSWjIVvv7LpRdO8TUWq30WYZ874E8qm7S3JgDVTDFNEj21QhQ0ufmj69W07IwPsN1qU7nZQmx_by0HTjaDEHP8F0.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1015x1015&from=bu&cs=807x807" width="400" alt="" class="lazy">
+			            </div>
+
+			            <div class="profile_rating">
+			                <div class="profile_rating_left">
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+			                        <p>249</p>
+			                    </div>
+
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+			                        <p>32</p>
+			                    </div> 
+
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+			                        <p>183</p>
+			                    </div> 
+			                </div>
+
+			                <div class="profile_rating_right">
+			                    <div class="viewers">
+			                        <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+			                        <p>14666</p>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+
+			    <br>
+
+			</div>
+			
+			<div class="post show">
+			    <div class="info_middle2 style="--accent-color: #D00903"">
+			        <div class="info_middle-left2">
+			           
+
+			            <div class="profile_rating">
+			                <div class="profile_rating_left">
+			                    <div class="profile_post_size">
+			                        <div class="profile_post_pic">
+			                            <a href="https://vk.com/wall-229076504_510" target="_blank"><img src="https://sun9-37.userapi.com/s/v1/ig2/YvcLQsHF5LV03NAyX2-1PBWDVB3aUwehH87NRkNXXgDutyPAJrlXepDvrzkVS5F2lUoIZyyTjskWRF12KAUu6iRP.jpg?quality=95&crop=137,137,1168,1168&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&ava=1&cs=50x50" alt=""></a>
+			                        </div>
+
+			                        <div class="profile_post_name_status">
+			                            <a href="https://vk.com/wall-229076504_510" target="_blank">Triada Club</a>
+			                            <a style="color: #7f7f7f;" href="https://vk.com/wall-229076504_510" target="_blank">2025-05-07</a>
+			                        </div>
+
+			                    </div>
+			                </div>
+			            </div>        
+
+			            <br>
+
+			            <div class="profile_post_information">
+			                <div class="block">
+			                    <input type="checkbox" id="-229076504_510" data-more-checker="read-more" />
+			                    <div class="limiter">
+			                        <p> Розыгрыш невероятной станции Алисы  <br>  <br> Хотите сделать свой дом умнее и комфортнее? Теперь у вас есть шанс выиграть эту замечательную колонку! <br> Станция Алиса поможет вам управлять устройствами, слушать музыку, задавать вопросы и многое другое. <br>  <br> Условия участия здесь   https://vk.com/wall-229076504_314 <br>  <br> Розыгрыш состоится 1  7   мая в 14:00 по Мск! Не упустите свой шанс стать обладателем умной колонки! <br>  <br> Удачи всем участникам! 
+</p>
+			                    </div>    
+			                    <div class="bottom">
+			                    </div>
+			                    <label for="-229076504_510" class="read-more-button"></label>
+			                </div>
+			                <br>
+			                <img data-src="https://sun9-29.userapi.com/s/v1/ig2/GDOkvZhiv2xg68buu_CEJCyjZyFcE9XNv5RXW2eYspITbS_Ku5Ps5J5fevzYD7vyDLi1WblRTPUFXiH5tm-ix5f6.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,960x1280&from=bu&cs=605x807" width="400" alt="" class="lazy">
+			            </div>
+
+			            <div class="profile_rating">
+			                <div class="profile_rating_left">
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+			                        <p>106</p>
+			                    </div>
+
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+			                        <p>26</p>
+			                    </div> 
+
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+			                        <p>34</p>
+			                    </div> 
+			                </div>
+
+			                <div class="profile_rating_right">
+			                    <div class="viewers">
+			                        <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+			                        <p>2866</p>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+
+			    <br>
+
+			</div>
+			
+			<div class="post show">
+			    <div class="info_middle2 style="--accent-color: #D00903"">
+			        <div class="info_middle-left2">
+			           
+
+			            <div class="profile_rating">
+			                <div class="profile_rating_left">
+			                    <div class="profile_post_size">
+			                        <div class="profile_post_pic">
+			                            <a href="https://vk.com/wall-172598718_5770" target="_blank"><img src="https://sun9-57.userapi.com/s/v1/ig2/9zTn_oIOdqha2twyTpGabzrwsd82TKfY4C9zZRA7D3hCrzKU-Q7UoPWNWYUPRVihmbHwqDHf_9QBNDGu_XAzQD1f.jpg?quality=95&crop=0,0,1000,1000&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720&ava=1&cs=50x50" alt=""></a>
+			                        </div>
+
+			                        <div class="profile_post_name_status">
+			                            <a href="https://vk.com/wall-172598718_5770" target="_blank">OVERCON | Киберспорт и Фиджитал Нижний Новгород</a>
+			                            <a style="color: #7f7f7f;" href="https://vk.com/wall-172598718_5770" target="_blank">2025-05-07</a>
+			                        </div>
+
+			                    </div>
+			                </div>
+			            </div>        
+
+			            <br>
+
+			            <div class="profile_post_information">
+			                <div class="block">
+			                    <input type="checkbox" id="-172598718_5770" data-more-checker="read-more" />
+			                    <div class="limiter">
+			                        <p>Розыгрыш фирменных игровых ковриков «Мир Танков» <br>  <br> OVERCON Online League и разработчики бесплатной онлайн-игры о танковых сражениях дарят три игровых ковра 90х40 см <br>  <br> Как поучаствовать: <br> 1) Подпишись на [club172598718 OVERCON] и [club9159189 Мир танков] в ВК <br> 2) Поставь лайк этому посту <br> 3) В комментах поделись названием своей любимой боевой машины <br>  <br> Итоги подведем 17 мая во время Церемонии закрытия OVERCON Online League  <br>  <br> Погрузись в командный танковый экшен. Мир Танков — Наша игра!
+</p>
+			                    </div>    
+			                    <div class="bottom">
+			                    </div>
+			                    <label for="-172598718_5770" class="read-more-button"></label>
+			                </div>
+			                <br>
+			                <img data-src="https://sun9-33.userapi.com/s/v1/ig2/H5zuKOYwQ6Hd65tQTEPBH7jEbv4fnY8gebOBARf516kcwX794fRZhPSJHPyA3iqh7thCh6n3ZoDdPU9F4v3KUnb0.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1015x1015&from=bu&cs=807x807" width="400" alt="" class="lazy">
+			            </div>
+
+			            <div class="profile_rating">
+			                <div class="profile_rating_left">
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+			                        <p>46</p>
+			                    </div>
+
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+			                        <p>7</p>
+			                    </div> 
+
+			                    <div class="likes">
+			                        <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+			                        <p>53</p>
+			                    </div> 
+			                </div>
+
+			                <div class="profile_rating_right">
+			                    <div class="viewers">
+			                        <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+			                        <p>1835</p>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+
+			    <br>
+
+			</div>
+			 
+                </div>
+            </div>
+        </body>
+    </html>
+	
