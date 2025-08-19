@@ -1,0 +1,3275 @@
+
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <title>Жираф - Клуб любителей розыгрышей</title>
+            <style>
+                pre {
+                    white-space: pre-wrap;       /* css-3 */
+                    white-space: -moz-pre-wrap;  /* Mozilla, с 1999 */
+                    white-space: -pre-wrap;      /* Opera 4-6 */
+                    white-space: -o-pre-wrap;    /* Opera 7 */
+                    word-wrap: break-word;       /* Internet Explorer 5.5+ поддерживается в IE, Safari, и Firefox 3.1.*/
+                    }
+
+
+                .lazy {
+                    display: inline-block;
+                    min-width: 200px; /* Задаем минимальную ширину */
+                    }
+
+                @import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
+                *{
+                    margin:0;
+                    padding: 0;
+                    box-sizing: border-box;
+
+                }
+                /*  Главная страница VK (profile) */
+                body{
+                    background-color: #edeef0;
+                }
+
+
+    /* Скрываем body до проверки */
+    body.pre-check {
+      display: none !important;
+    }
+
+                .page{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center; /* Выравнивание по горизонтали */
+                    background-color: #edeef0;
+                    color: #404040;
+                    font-family: 'Dela Gothic One', cursive;
+                    font-family: 'Sofia Sans Extra Condensed', sans-serif;
+
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    font-size: 14px;/**/
+                    /* height: 49px; */
+                    /* box-shadow:0 3px rgb(255, 255, 255); */
+                }
+
+                .page_header{
+                    display: flex;
+                    background-color: #222;
+                    color: white;
+                    font-family: 'Dela Gothic One', cursive;
+                    font-family: 'Sofia Sans Extra Condensed', sans-serif;
+
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    font-size: 22px;
+                    /* height: 49px; */
+                    /* box-shadow:0 3px rgb(255, 255, 255); */
+                }
+
+                .iconify{
+                    display: flex;
+                    flex-direction: column;
+                    color: rgb(113,170,235); 
+                    font-size: 18px;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                a {
+                    display: flex;
+                    text-decoration: none; 
+                    align-items: center;
+                    color: #46588d;
+                }
+
+                .info{
+                    width: 100%;
+                    height: 100vh;
+                }
+
+                .upper{
+                    position: relative;
+                    border-radius: 18px;
+                    height: 365px;
+                    width: 100%;
+                    max-width: 600px;
+                    /* background: linear-gradient(#e66465, #9198e5); */
+                    background-image: url(../img/car.jpg);
+                    background-size: contain;
+                    border: 0.01px solid rgb(61, 61, 61);
+                    border-radius: 17px;
+                }
+
+                .profile_down{
+                    background-color: #222;
+                    position: absolute;
+                    bottom: 0;
+                    display: flex;
+                    height: 33%;
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 15px;
+                    box-shadow: 0px -26px 20px 0px rgb(0 0 0 / 24%);
+                    /* горизонт, вертик, размыт, толщина, цвет */
+                }
+
+                .profile_flex{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                }
+
+                .profile_pic{
+                    width: 150px;
+                    height: 150px;
+                    margin-bottom: 49px;
+                    padding-bottom: 50px;
+                    border: 3px solid #222;
+                    border-radius: 100px;
+                    min-width: 150px;
+                }
+
+                .profile_pic img{
+                    width: 100%;
+                    border-radius: 100px;
+                }
+
+                .profile_name{
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .profile_buttons{
+                    display: flex;
+                    text-align: right;
+                    justify-content: space-between;
+                    cursor: pointer;
+                }
+
+                .btn{
+                    display: flex;
+                    margin-inline: 3px;
+                    flex-direction: row;
+                    padding: 5px;
+                    background: #333;
+                    box-shadow: none;
+                    border: 0;
+                    border-radius: 10px;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    height: 40px;
+                }
+
+                .btn.SMS{
+                    width: 120px;
+                }
+
+                .btn.MORE{
+                    display: flex;
+                    justify-content: center;
+                    text-align: center;
+                }
+
+                .profile_buttons a:hover{
+                    background: #3c3c3c;
+                }
+
+                .line{
+                    margin-block: 15px;
+                    width: 100%;
+                    height: 1px;
+                    background-color: rgb(61, 61, 61);
+                }
+
+                .info_middle2{
+                    display: flex;
+                    width: 100%;
+                    max-width: 600px;
+                    border-radius: 17px;
+                    margin-inline: auto;
+                }
+
+                .info_middle-left2{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    max-width: 600px;
+                    /*border-radius: inherit;*/
+                    /*background-color: #ffffff;*/
+                    padding: 13px;
+                    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+                    background-image: linear-gradient(to bottom right, #f9fafc, #ffffff);
+                    border-radius: inherit;
+                    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.25));
+                    box-shadow: inset 2px 2px 2px white, inset -1px -1px 1px rgba(0, 0, 0, 0.25);
+                }
+
+                .info_middle_left2_upper{
+                    display: flex;
+                    height: max-content;
+                    width: 100%;
+                    justify-content: space-between;
+                }
+
+                .zapisi a{
+                    display: flex;
+                    font-size: 16px;
+                    background: #2a5885;
+                    border-radius: 9px;
+                    padding-inline: 9px;
+                    padding-block: 3px;
+                    width: max-content;
+                    border: 0.01px solid rgb(61, 61, 61);
+                }
+
+                .line1{
+                    position: relative;
+                    margin-block: 15px; 
+                    width: 100%;
+                    height: 1px;
+                    /* transform: translate(-3%); */
+                    background-color: rgb(180, 180, 180);
+                }
+
+                .profile_post_size{
+                    display: flex;
+                    align-items: center;
+                }
+
+                .profile_post_size img{
+                    width: 40px;
+                    border-radius: 50px;
+                }
+
+                .profile_post_pic a{
+                    display: flex;
+                    justify-content: center;
+                    text-align: center;
+                    height: 100%;
+                    font-size: 15px;
+                    color: red;
+                }
+
+                .profile_post_name_status{
+                    margin-left: 8px;
+                }
+
+                .profile_post_name_status p{
+                    font-size: 14px;
+                    color: #7f7f7f;
+                }
+
+                .profile_post_name_status a{
+                    font-size: 14px;
+                }
+
+                .profile_post_name img{
+                    margin-left: 2px;
+                    align-items: center;
+                }
+
+                .status_upper img{
+                    width: 15px;
+                }
+
+                .profile_post_information img{
+                    width: 100%;
+                    border-radius: 12px;
+                    object-fit: contain;
+                }
+
+                .profile_post_information p{
+                    text-align: justify;
+                    word-wrap: break-word;
+                }
+
+                .profile_rating{
+                    display: flex;
+                    margin-top: 8px;
+                    justify-content: space-between;
+                }
+
+                .profile_rating_left{
+                    display: flex;
+                }
+
+                .likes{
+                    display: flex;
+                    padding-block: 5px;
+                    padding-inline: 8px;
+                    cursor: default;
+                    align-items: center;
+                }
+
+                .likes p{
+                    margin-left: 4px;
+                    color: #828282;
+                }
+
+                .share{
+                    display: flex;
+                    margin-left: 5px;
+                    padding-block: 5px;
+                    padding-inline: 8px;
+                    cursor: default;
+                }
+
+                .profile_rating_right{
+                    display: flex;
+                    justify-content: center;
+                    text-align: center;
+                }
+
+                .viewers{
+                    display: flex;
+                    align-items: center;
+                }
+
+                .viewers p{
+                    margin-left: 4px;
+                    color: #828282;
+                    cursor: default;
+                }
+
+                .limiter {
+                    max-height: 130px;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                .limiter .bottom {
+                    position: absolute;
+                    bottom: 0;
+                    background: linear-gradient(
+                      to bottom,
+                      rgb(255 217 29 / 0%),
+                      rgb(255 255 255)85%);
+                    width: 100%;
+                    height: 60px;
+                    opacity: 1;
+                    transition: 0.3s;
+                }
+
+                [data-more-checker^="read-more"] {
+                    opacity: 0;
+                    position: absolute;
+                }
+
+                [data-more-checker^="read-more"]:checked ~ .limiter {
+                    max-height: none;
+                }
+
+                [data-more-checker^="read-more"]:checked ~ .limiter .bottom {
+                    opacity: 0;
+                    transition: 0.3s;
+                }
+
+                [data-more-checker^="read-more"] ~ .read-more-button:before  {
+                    content: "Показать ещё...";
+                }
+
+                [data-more-checker^="read-more"]:checked ~ .read-more-button:before {
+                    content: "Свернуть";
+                }
+
+                .read-more-button {
+                    cursor: pointer;
+                    display: inline-block;
+                    color: #777;
+                    text-decoration: underline;
+                }
+
+                .dropdown {
+                    position: relative;
+                    display: inline-block;
+                    text-align: right;
+                }
+
+                .dropdown-btn {
+                    font-size: 16px;
+                    border: none;
+                    outline: none;
+                    background-color: inherit;
+                    cursor: pointer;
+                    padding-left: 16px;
+                }
+
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    z-index: 1;
+                    background-color: #ffffff;
+                    min-width: 160px;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    padding: 12px 16px;
+                    text-align: right;
+                    right: 0;
+                    border-radius: 8px; /* Добавляем закругление */
+                }
+
+                .dropdown:hover .dropdown-content {
+                    display: block;
+                }
+
+                .dropdown-content a {
+                    display: block;
+                    max-width: 100%; /* Устанавливаем максимальную ширину, чтобы ссылка не выходила за границы родительского элемента */
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                a:visited {
+                    color: #acb5cc; /* Цвет посещенных ссылок */
+                }
+
+                .tooltipable::after {
+                    content: attr(data-tooltip); /* Используем значение атрибута data-tooltip */
+                    display: none;
+                    position: absolute;
+                    background-color: #ffffff;
+                    color: #828282;
+                    padding: 5px;
+                    border-radius: 4px;
+                    z-index: 1000;
+                    pointer-events: none;
+                    margin-top: 5px;
+                }
+
+                .tooltipable:hover::after {
+                    display: block;
+                }
+
+                .buttons {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                }
+
+                .btn {
+                    padding: 10px;
+                    border: none;
+                    cursor: pointer;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    text-align: left;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+
+                .btn.active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+
+                .btn:not(.active) {
+                    background-color: #f0f0f0;
+                    color: #46588d;
+                }
+
+                .post {
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    display: none;
+                }
+
+                .post.show {
+                    display: flex;
+                }
+
+                select {
+                    background-color: #ffffff;
+                    background-image: url( https://www.crcna.org/sites/all/themes/zen_crcna/images/select-arrow@3x.jpg);
+                    background-position: right -15px;
+                    background-repeat: no-repeat;
+                    background-size: 30px 120px;
+                    padding-right: 40px;
+                    border: 1px solid $border-color;
+                    -moz-border-radius: 4px;
+                    -webkit-border-radius: 4px;
+                    border-radius: 4px;
+                    -moz-appearance: none;
+                    -webkit-appearance: none;
+                    appearance: none;
+
+                    /* CRCNA SPECIFIC */
+                    padding-top: 6px;
+                    padding-bottom: 6px;
+                    padding-left: 6px;
+                    font-size: 12px;
+                    line-height: 18px;
+                    color: #4e4e4e;
+                    min-height: 18px;
+
+                    &:focus {
+                        outline: none;
+                        border-color: darken($border-color, 10%);
+                        background-position: right -75px;
+                    }
+
+                    &:disabled { /* selectric */
+                        filter: alpha(opacity=50);
+                        opacity: 0.5;
+                        cursor: default;
+                        user-select: none;
+                    }
+                }
+
+
+                 #search-container {
+                    margin: 20px 0;
+                    padding: 15px;
+                    background: #f5f5f5;
+                    border-radius: 17px;
+                    box-shadow: inset 2px 2px 2px white, inset -1px -1px 1px rgba(0, 0, 0, 0.25);
+                }
+
+                #search-input {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    font-size: 16px;
+                }
+
+                #search-results {
+                    margin-top: 10px;
+                    color: #7f7f7f;
+                    font-size: 14px;
+                }
+
+
+                #search-container {
+                    margin: 20px 0;
+                    padding: 15px;
+                    background: #f5f5f5;
+                    border-radius: 17px;
+                    box-shadow: inset 2px 2px 2px white, inset -1px -1px 1px rgba(0, 0, 0, 0.25);
+                }
+
+                #search-input {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    font-size: 16px;
+                }
+
+                #search-results {
+                    margin-top: 10px;
+                    color: #7f7f7f;
+                    font-size: 14px;
+                }
+
+                .highlight {
+                    background-color: yellow;
+                    padding: 0 2px;
+
+            </style>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+            <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+            <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Sofia+Sans+Extra+Condensed:wght@1;200;400;800&display=swap" rel="stylesheet">
+
+
+
+
+
+    <script>
+    
+        function createErrorPage(message) {
+            return `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <style>
+                        body {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                            margin: 0;
+                            font-family: Arial, sans-serif;
+                            background-color: #f8f9fa;
+                            color: #dc3545;
+                        }
+                        .error-container {
+                            text-align: center;
+                            padding: 20px;
+                            border: 2px solid #dc3545;
+                            border-radius: 10px;
+                            background-color: white;
+                            max-width: 80%;
+                        }
+                        h1 {
+                            font-size: 24px;
+                            margin-bottom: 10px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="error-container">
+                        <h1>${message}</h1>
+                        <p>Пожалуйста, запросите новую ссылку</p>
+                    </div>
+                </body>
+                </html>
+            `;
+        }
+    
+
+        
+        
+        
+      document.addEventListener('DOMContentLoaded', function() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const trustedParam = urlParams.get('t');
+                    
+                    if (trustedParam !== '1') {
+            document.write(createErrorPage('Ошибка загрузки.'));
+            document.close(); // Останавливаем загрузку
+
+                        return; 
+                    }else{
+                    document.body.classList.remove('pre-check');
+                    }
+                });   
+        
+        
+    </script>
+
+
+            <script>
+
+            
+            
+                $(document).ready(function() {
+                    // Функция для загрузки изображения по заданному источнику из атрибута data-src
+                    function loadImage(img) {
+                        const src = img.getAttribute('data-src');
+                        if (!src) {
+                            return; // Если нет источника, функция завершается
+                        }
+                        img.src = src; // Устанавливаем источник изображения
+                    }
+
+                    // Используем Intersection Observer API для реализации ленивой загрузки изображений
+                    const observer = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) { // Проверяем, пересекает ли элемент область видимости
+                                const img = entry.target;
+                                loadImage(img); // Загружаем изображение
+                                observer.unobserve(img); // Отключаем наблюдение за элементом после загрузки
+                            }
+                        });
+                    }, {
+                        rootMargin: '0px 0px 2000px 0px', // Добавляем дополнительное расстояние от области видимости снизу
+                    });
+
+                    // Находим все изображения с классом .lazy и начинаем их наблюдение
+                    const lazyImages = $('.lazy'); // Используем селектор jQuery
+                    lazyImages.each(function() {
+                        observer.observe(this); // this указывает на текущий элемент в цикле each
+                    });
+                });
+
+                $(document).ready(function() {
+                    // Обработка клика на кнопку
+                    $('.btn').click(function() {
+                        $(this).toggleClass('active'); // Толчок класса 'active'
+
+                        let filters = []; // Массив фильтров
+                        $('.btn.active').each(function() { // Для каждой активной кнопки
+                            filters.push($(this).data('filter')); // Добавляем фильтр в массив
+                        });
+
+                        $('.post').each(function() { // Для каждого поста
+                            let post = $(this); // Ссылка на текущий пост
+                            let show = false; // Флаг показа
+
+                            for (let i = 0; i < filters.length; i++) { // Проходим по всем фильтрам
+                                if (post.hasClass(filters[i])) { // Если пост имеет один из фильтров
+                                    show = true; // Показываем пост
+                                    break; // Выходим из цикла
+                                }
+                            }
+
+                            if (show) { // Если флаг установлен в true
+                                post.addClass('show'); // Добавляем класс 'show'
+                            } else {
+                                post.removeClass('show'); // Иначе удаляем класс 'show'
+                            }
+                        });
+                    });
+                });
+
+                $(document).ready(function() {
+                    $('#pet-select').on('change', function() {
+                        var selectedFilter = $(this).find(':selected').data('filter');
+
+                        $('.btn').removeClass('active');
+                        $('.btn[data-filter="' + selectedFilter + '"]').addClass('active');
+
+                        $('.post').each(function() {
+                            var post = $(this);
+                            if (selectedFilter === 'all' || post.hasClass(selectedFilter)) {
+                                post.addClass('show');
+                            } else {
+                                post.removeClass('show');
+                            }
+                        });
+                    });
+                });
+
+            </script>
+        </head>
+
+        <body class="pre-check">
+        
+            <div class="page">
+                <br>
+                <div class="info_middle2 style="--accent-color: #D00903"">
+                    <div class="info_middle-left2">
+                        <br>
+                        <p> Выберите пункты которые вас интересуют.</p>
+                        <br>
+
+                        <div class="buttons">
+                            <button class="btn" data-filter="no-repost">Без репоста</button>
+                            <button class="btn" data-filter="telegram">Telegram</button>
+                            <button class="btn" data-filter="owneruser">Конкурсы на личных страницах</button>
+                            <button class="btn" data-filter="all-konkurs">Конкурсы(Основной список)</button>
+                            <button class="btn" data-filter="besplatno">Группы по типу Бесплатно</button>
+                            <button class="btn" data-filter="food">Группы с едой</button>
+                            <button class="btn" data-filter="blacklist">Группы в Черном Списке</button>
+                        </div>
+
+                        <select name="pets" id="pet-select">
+                            <option class="btn" data-filter="city_no">Все города</option>
+<option class="btn" data-filter="city_0">Апатиты</option>
+<option class="btn" data-filter="city_1">Архангельск</option>
+<option class="btn" data-filter="city_2">Великие Луки</option>
+<option class="btn" data-filter="city_3">Вельск</option>
+<option class="btn" data-filter="city_4">Волхов</option>
+<option class="btn" data-filter="city_5">Воронеж</option>
+<option class="btn" data-filter="city_6">Екатеринбург</option>
+<option class="btn" data-filter="city_7">Заинск</option>
+<option class="btn" data-filter="city_8">Казань</option>
+<option class="btn" data-filter="city_9">Коноша</option>
+<option class="btn" data-filter="city_10">Луганск</option>
+<option class="btn" data-filter="city_11">Магадан</option>
+<option class="btn" data-filter="city_12">Москва</option>
+<option class="btn" data-filter="city_13">Муравленко</option>
+<option class="btn" data-filter="city_14">Мурманск</option>
+<option class="btn" data-filter="city_15">Новосибирск</option>
+<option class="btn" data-filter="city_16">Ногинск</option>
+<option class="btn" data-filter="city_17">Омск</option>
+<option class="btn" data-filter="city_18">Пермь</option>
+<option class="btn" data-filter="city_19">Полярные Зори</option>
+<option class="btn" data-filter="city_20">Санкт-Петербург</option>
+<option class="btn" data-filter="city_21">Североморск</option>
+<option class="btn" data-filter="city_22">Старый Оскол</option>
+<option class="btn" data-filter="city_23">Стаханов</option>
+<option class="btn" data-filter="city_24">Тамбов</option>
+
+                        </select>
+                        <br>
+
+                    </div>
+                </div>
+                <br>
+
+                <div class="info_middle2" style="--accent-color: #D00903">
+                    <div class="info_middle-left2">
+                        <div id="search-container">
+                            <input type="text" id="search-input" placeholder="Поиск по тексту в постах...">
+                            <div id="search-results"></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="posts">
+    
+        <div class="post all-konkurs  city_14 city_21">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>1 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>2217</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>2</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;"><span style="color: red;">Мурманск</span> 57%, N/C 14%, Североморск 4%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-210526389_2217" target="_blank"><img src="https://sun9-39.userapi.com/s/v1/ig2/nvyjKrAo9yDonjjghZkuIfLr70DlyXUMpBTarMK6_4QufSwikDmZdHYijjOmyoch2vah_gte48eUHucROsPh07In.jpg?quality=95&crop=245,248,771,771&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-210526389_2217" target="_blank">Гостиница «ТЕРЬ» Териберка</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-210526389_2217" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-210526389_2217" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>🎉 ДРУЗЬЯ, У НАС КОНКУРС 🎉 <br>  <br> Вместе с нашими партнёрами, одной из лучших туристических компаний Кольского полуострова «Понаехали», мы запускаем конкурс репостов! <br>  <br> 🏆 Призы: <br> 1 место - сутки проживания в гостинице «Терь» <br> 2 место - депозит в ресторане «Терь» на 2000  <br> 3 место - фирменный мерч от компании «Понаехали» - качественный, крутой, с сердцем и душой <br>  <br> ✅ Условия простые: <br>  1. Подписаться на группу [club210526389 ТЕРЬ] и на группу [club179068598 ПОНАЕХАЛИ] во ВКонтакте <br>  2. Поставить лайк этой записи <br>  3. Написать в комментариях пожелание себе удачи ✨ <br>  <br> 📅 Итоги подведём 1 сентября. <br>  <br> Желаем удачи всем участникам! Всем пока! 👋 фирменный мерч от компании «Понаехали» — качественный, крутой, с сердцем и душой <br>  <br> 📅
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-210526389_2217" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-52.userapi.com/s/v1/ig2/HBRsSU-YPs9pSX3pOVB0AJrf8hkWh4tJ4km_vin8VQmk8hzfRsxN9o50VKcqfSga23hEEEk5mRcCDL_SOZSk7pd5.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1351,1280x1601,1440x1801,2047x2560&from=bu&cs=1080x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>65</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>20</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>56</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>1385</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post all-konkurs  city_12 city_20">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>2 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>216093</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>655</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;">N/C 39%, Москва 7%, Санкт-Петербург 5%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-223786383_216093" target="_blank"><img src="https://sun9-3.userapi.com/s/v1/ig2/NoFOuKsyc5vIZQNQ_urLuAq5Rw6sjKLQfv_uCC4_aP9cR3LEguwJl-SiOM23nOvAgQSuGlimSE2nRqo0ah5ICMjw.jpg?quality=95&crop=41,124,563,563&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-223786383_216093" target="_blank">Миры фэнтези Натальи Дорофеевой</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-223786383_216093" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-223786383_216093" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>В новом розыгрыше по книге "Истинная. Моя. Я сказал!"  <br> мы снова разыграем кружку с изображением героев книги 🤗  <br> ‼Внимание! Правила участия‼  <br> Вам нужно выполнить все нижеперечисленные условия:  <br> 🌸Быть участником группы  <br> 🌸Сделать репост этой записи. Кроме того, ваша стена должна быть ОТКРЫТА, и позиция репоста этой записи должна быть не ниже десятой до момента подведения итогов розыгрыша.  <br> ❗Если у вас закрытый профиль, ответ на вопрос засчитан не будет❗  <br> 🌸Написать в комментариях "Участвую"  <br> 🌸ПРАВИЛЬНО ответить на вопрос❗в ЛС группы❗ "Почему императора Гранвелла отказался явиться?"  <br> 🚫ЗАПРЕЩЕНО участвовать с нескольких аккаунтов.  <br> Окончание приема заявок 19.08 в 23:59  <br> Подведение итогов 20.08  <br> ❗Победитель должен будет объявиться в течение 48 часов после объявления результатов. В противном случае приз будет разыгран еще раз  <br> 🍀Желаем удачи всем участникам🍀😍  <br> *активность под постом в рейтинге не учитывается
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-223786383_216093" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-62.userapi.com/s/v1/if2/bQGWorhYYfTeRdm1OInBWEQn4yG3bR6FKEvKOHQPBb_tIssaWyfCtSwxr0hxVWYSrV3YALhtu2lkXdHM5ZaQ-cN1.jpg?quality=95&as=32x18,48x27,72x41,108x61,160x90,240x136,360x203,480x271,540x305,640x361,720x407,1080x610,1280x723,1440x813,2560x1446&from=bu&cs=1080x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>64</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>6</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>27</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>197</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post no-repost  city_12">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>3 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>649653</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>6</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;">N/C 43%, Москва 4%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-185763421_649653" target="_blank"><img src="https://sun9-34.userapi.com/s/v1/ig2/xjtOnnhddohpcJHZ_8wT-MY_0KDQlyUTuPhkCsua5d234sX63NX7Wo_1DupFDOjLHjkTpxexLfzbfMHsTsyXif1A.jpg?quality=95&crop=12,0,1188,1188&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-185763421_649653" target="_blank">Old Team | Radmir & Hassle News</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-185763421_649653" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-185763421_649653" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>👑 Подводим итоги прошедшей недели! Новые итоги - 25 августа. Заработок баллов доступен с 18.08 00:00 до 24.08 23:59 МСК. Список призов:  <br>   <br> 1 Место — 300 рублей.  <br> 2 Место — 200 рублей.  <br> 3 Место — 100 рублей.  <br> 4 Место — 100 рублей.  <br> 5 Место — 100 рублей.  <br>   <br> ✅ Рейтинг Активности успешно обнулен! Люди, которые вошли в список победителей, напишите нам в ЛС группы в течение 48 часов — выдадим.  <br>   <br> 💸 Напомним, что мы платим реальные деньги за ваши лайки и за предлагаемые новости! Каждое воскресенье, в 23:59 по МСК мы обнуляем баллы и подводим итоги, кто забирает реальные деньги.
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-185763421_649653" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-52.userapi.com/s/v1/if2/4Qmhbrul2YSvbmOg0JjvGrvCkHzpF3bUstwb-zCthCBLNbw9kakdp3ELuasV7VxNsnZu7K7UCn1mEmy8-_b4btMK.jpg?quality=95&as=32x28,48x42,72x63,108x94,160x139,240x209,360x314,480x418,540x471,640x558,720x628,1080x942,1170x1020&from=bu&cs=1080x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>64</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>5</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>16</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>3149</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post all-konkurs  city_12 city_20">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>4 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>216094</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>655</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;">N/C 39%, Москва 7%, Санкт-Петербург 5%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-223786383_216094" target="_blank"><img src="https://sun9-3.userapi.com/s/v1/ig2/NoFOuKsyc5vIZQNQ_urLuAq5Rw6sjKLQfv_uCC4_aP9cR3LEguwJl-SiOM23nOvAgQSuGlimSE2nRqo0ah5ICMjw.jpg?quality=95&crop=41,124,563,563&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-223786383_216094" target="_blank">Миры фэнтези Натальи Дорофеевой</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-223786383_216094" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-223786383_216094" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>РАЗЫГРЫВАЕТСЯ ПРОМОКОД на любую книгу любого автора на ЛитГороде! (по выбору победителя) 😱  <br>   <br> ‼Внимание! Правила участия‼  <br> Для участия в розыгрыше необходимо:  <br> 1 - Быть участником группы  <br> 2 - Сделать репост этой записи (он должен быть не ниже 10 сообщения на странице, а стена должна быть открытой)  <br> 3 - Добавить и лайкнуть книгу "Истинная. Моя. Я сказал!" на Литнет https://litnet.com/ru/book/istinnaya-moya-ya-skazal-b537913 и на Литгороде https://litgorod.ru/books/view/50429  <br> 4 - Написать под ней комментарий по новой главе на обеих (!) площадках по сюжету размером не менее 100 знаков  <br> 5 - Написать в комментариях "Участвую" и ваши ник на Литнет и ЛитГороде  <br>   <br> *Победитель будет выбран с помощью рандомайзера.  <br> **Активность под постом в рейтинге не учитывается  <br>   <br> Окончание приема заявок 18 августа 23:59. Итоги 19 августа.
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-223786383_216094" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-29.userapi.com/s/v1/ig2/qY23aoQ4MH8ZwV-XUg0A3W9xPSM5dU2gSAhbODDxOHgoX8AH6gVeG0g9IJknxu8Qr1udpDZFvszg5rI9Wuc4Mysp.jpg?quality=95&as=32x47,48x70,72x105,108x157,160x233,240x349,360x524,480x698,540x786,640x931,712x1036&from=bu&cs=712x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>60</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>14</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>33</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>205</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post all-konkurs ">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>5 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>466</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-221658784_466" target="_blank"><img src="https://sun9-4.userapi.com/s/v1/ig2/PQuxyktvH4Xrta-p0rL5BTuTnFY3fuziht-V78e7sqDr5yo9ZOiTZcqOqEVUqeSAKgjHST11zQpjO4lEKRocTN6o.jpg?quality=95&crop=15,53,919,919&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-221658784_466" target="_blank">Зевс</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-221658784_466" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-221658784_466" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>В честь своего дня рождения, запускаю масштабный розыгрыш! Бесплатные деньги!  <br> Условия данного розыгрыша просты! <br> Вам нужно быть подписанным на моё ВК Сообщество. (подписки буду проверять лично) <br>  <br> А сколько денег получит один победитель, зависит только от вас, ведь количество рублей будет считаться по системе (сколько подписчиков в моём ВК Сообществе, столько и получит один из вас, пока на данный момент 583!) Но естественно, эта цифра может увеличиться. <br>  <br> 18.08.25 до 01.09.25 <br> Проведение розыгрыша ровно 15 дней, я думаю за это время вы сможете увеличить общий банк для одного из вас!  <br> Это не скам! И победитель выберется случайным образом! Всё честно, без каких-либо накруток. <br> Делайте репосты этого поста, только я вас прошу, не нужно набирать 10000 тысяч подписчиков за 15 дней, а то мне придётся раскошелиться! <br> Желаю всем удачи!
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-221658784_466" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-59.userapi.com/s/v1/ig2/H20FHT6DmnpEM92kk9E2UIm5EE7tZ2IyKsbMHLYb0ksyEsPBCp9ThULbR1Qbkni7wFYHgJvIBVM-jndTRANGloHR.jpg?quality=95&as=32x57,48x85,72x128,108x192,160x284,240x427,360x640,480x853,540x960,640x1138,720x1280,1080x1920,1280x2276,1440x2560&from=bu&cs=1080x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>34</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>3</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>10</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>2111</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post owneruser  city_2">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>6 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>572</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;"><span style="color: red;">Великие Луки</span> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall787258130_572" target="_blank"><img src="https://sun9-29.userapi.com/s/v1/ig2/-WO6f7BpxJGNBxFYOhqIlmcTjPTbR9WdaTiFyRPQZIZX6wlR5mBBP-qrDJCely3hvqn3JtX6PDodfi2A6HebDJIu.jpg?quality=95&crop=239,855,1183,1183&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall787258130_572" target="_blank">Александра Григорьева</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall787258130_572" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="787258130_572" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>Экспресс-съемка за репост 😍 <br>  <br> Условия: <br>  <br> - Сделать репост данного поста к себе на страничку (запись должна быть не ниже 3-ей + страничка должна быть открыта) <br> - Быть у меня в друзьях <br> - Поставить любой комментарий под постом  <br>  <br>     Вы получаете абсолютно бесплатно 💔 <br>  <br> 🌸прогулочную съемку 15-30 мин <br> 🌸10 фотографий в ретуши через 2-3 дня <br>  <br> 📌итоги розыгрыша 25.08.25
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="787258130_572" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-38.userapi.com/s/v1/ig2/6MKV7TVxnRom-8Dwomwq_khFIWLFrFCOtaK-9dw6buPQ8jHah3udJmu6Da8PZ3-WUpM2tqP2ZMplGadtArZ0nSQ4.jpg?quality=95&as=32x49,48x73,72x110,108x164,160x243,240x365,360x548,480x730,540x822,640x974,720x1096,1080x1643,1206x1835&from=bu&cs=1080x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>20</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>18</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>16</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>539</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post no-repost  city_20 city_4">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>7 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>1970</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>2</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;">Санкт-Петербург 54%, N/C 11%, <span style="color: red;">Волхов</span> 9%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-181725390_1970" target="_blank"><img src="https://sun9-17.userapi.com/s/v1/ig2/qHg9qsE2QDacxXKoU1MVGeUfwQe3snyobtkgeEcItpixVF88mEfiFc5GrTtujgG-0ho5tPRY0OaKBr7lUGDBkmkN.jpg?quality=95&crop=0,0,1599,1599&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-181725390_1970" target="_blank">Садовый Центр «КОЛА»</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-181725390_1970" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-181725390_1970" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>🌿 РОЗЫГРЫШ ДЛЯ ИСТИННЫХ ЦЕНИТЕЛЕЙ САДОВОГО ИСКУССТВА 🌿 <br>  <br> Дорогие друзья-садоводы! В преддверии осени мы дарим вам возможность поселить в своём саду настоящую поэзию цветов!   <br>  <br> 🏆 ТРИ ШЕДЕВРА ДЛЯ ВАШЕГО САДА : <br>  <br> 1️⃣ Гортензия "Скайфолл" - "Белоснежные водопады соцветий" <br> 2️⃣ Гортензия "Самарская Лидия" - "Малиново-пурпурный шёпот августа" <br> 3️⃣ Роза на выбор - "Королева вашего цветника" <br>  <br> 🎯 УСЛОВИЯ УЧАСТИЯ :   <br> 1️⃣ Подпишитесь на наш аккаунт   <br> 2️⃣ Поставьте ❤️ этому посту   <br> 3️⃣ Отметьте двух друзей-садоводов   <br> 4️⃣ Напишите в комментариях, какое растение вдохновляет вас больше всего   <br>  <br> 📅 СРОКИ ПРОВЕДЕНИЯ РОЗЫГРЫША   <br> 🌱 18-24 августа проведение конкурса <br> 🌸 25 августа — определение победителей   <br>  <br> 🌿 ПОЧЕМУ СТОИТ УЧАСТВОВАТЬ?  <br> ✔ Все растения акклиматизированы для Ленинградской области   <br> ✔ Экспертная гарантия приживаемости   <br> ✔ Бесплатная консультация по уходу   <br>  <br> 📍 Наш садовый центр: <br> Ленинградская область , Мурманское шоссе. 102 км поворот на садоводство Пупышево.   <br> 📞  +7 921 560‑24‑28    <br>  <br> #ПосадиМечту #СадМечты #АвгустовскийРозыгрыш #Зеленыймай
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-181725390_1970" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-77.userapi.com/s/v1/ig2/HzKbcz9jF5JSvbkWP9F5o8m23_g_haK8KkQhJ0zFdco1KduHV5sQxxcQIcRnY7q8Gssc9NsBI5EXxvyIFNxeTvDL.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440,2560x2560&from=bu&cs=1080x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>16</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>9</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>13</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>298</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post all-konkurs  city_3 city_9 city_8 city_20">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>8 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>4648</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>5</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;"><span style="color: red;">Вельск</span> 31%, N/C 26%, Коноша 4%, Казань 3%, Санкт-Петербург 3%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-220847722_4648" target="_blank"><img src="https://sun9-78.userapi.com/s/v1/ig2/DEDvSykE6Urx4A2JV463wiy2_iqoKkrcdl8mrqJiHaI5a-kXWZRbEDgj8x669rwV8rr1HhcqfehTo0U6VFa2Uz2h.jpg?quality=95&crop=1,385,1919,1919&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-220847722_4648" target="_blank">БОЛЬШОЙ КИНДЕР СЮРПРИЗ ВЕЛЬСК / kinder Velsk</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-220847722_4648" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-220847722_4648" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>Розыгрыш на мини подарочки к 1 сентября ✨🍁  <br> Разыгрывается 10 мини подарочков на выбор ( брелоки, 3д стикеры на подложке, мамба в упаковке карандашика ) <br> Условия для участия: <br> 1️⃣ быть подписчиком группы https://vk.com/kinderboksvelsk <br> 2️⃣ лайк и репост на данную запись 🤗 <br> 3️⃣ любой комментарий с отметкой друга  <br>  <br> Все условия обязательны к выполнению и будут проверяться ❗️ <br>  <br> Итоги подведу 29 августа в течения дня 🙃 <br>  <br> Доставка в другой город за счет победителя.
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-220847722_4648" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-83.userapi.com/s/v1/ig2/YeUf8sE-eukwdbCE3UsbYkpACzRjQvSKQFJ6PRrP_W5I49JM6-S2DHnKrmyJcG4OigtCBZvnXX6YwfgeUBiyzOGT.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1080x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>12</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>7</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>7</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>904</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post besplatno  city_24 city_11 city_12 city_5 city_20 city_16 city_2 city_6">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>9 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>89113</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>5252</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;">N/C 11%, Тамбов 11%, Магадан 11%, Москва 10%, Воронеж 7%, Санкт-Петербург 4%, Ногинск 3%, Великие Луки 3%, Екатеринбург 3%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-205094780_89113" target="_blank"><img src="https://sun9-3.userapi.com/s/v1/ig2/UG_LcRuVagjhCWcAJqRwpWjWny1ebvmGXyGU_i9M2kkMyHiNVKxLGPwx6yjoDVM4h8zH4eftVoGfCPaRnUk-tT9w.jpg?quality=95&crop=114,16,356,356&as=32x32,48x48,72x72,108x108,160x160,240x240&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-205094780_89113" target="_blank">Информационный портал о конкурсах и розыгрышах</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-205094780_89113" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-205094780_89113" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>#18_август_2025@info_portal_giveaways  <br>  <br> Продолжаем наш еженедельный розыгрыш товаров!  <br>   <br> Конкурс №43 от PoizonX.  <br>   <br> Приз — Кроссовки Nike Air Pegasus 2005  <br>  <br> ❗❗❗Данный конкурс проходит не у нас в сообществе, для того, чтобы поучаствовать, перейдите пожалуйста по ссылке: https://vk.com/wall-38954301_35931 <br>   <br> Условия участия:  <br> 1. Быть подписанным на нашу группу  <br> 2. Сделать репост этой записи  <br>   <br> Победителей выберем с помощью рандомайзера и объявим уже в следующий понедельник 18 августа в 19:00 мск.  <br>   <br> Желаем всем удачи!
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-205094780_89113" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-30.userapi.com/s/v1/ig2/I2OUS_ZTiude39x7op3_mdADbJ9q9zDngU3KpVdLNXXt3WFkE4y_v_K14532iCnBlMUPHnbGaXlKoDM7a5dSXjNc.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640&from=bu&cs=640x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>11</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>368</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post telegram  city_20">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>10 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>3459</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;"><span style="color: red;">Санкт-Петербург</span> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-213654860_3459" target="_blank"><img src="https://sun9-61.userapi.com/s/v1/ig2/xDX2uk9Kw2aS9QPUnjN0HFb9j1EVOi__VleTaK_DB_iI-eqJZjNvSFqCBId9GmjOmMt3uDtqvw9seujW1hXQKMTx.jpg?quality=95&crop=119,144,1495,1495&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-213654860_3459" target="_blank">Arizona RP • STAG — Лучший бонусный сервер SAMP</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-213654860_3459" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-213654860_3459" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>🍀 САМЫЙ КРУПНЫЙ КОНКУРС НА ARIZONA RP   STAG • БОНУСНЫЙ ПРОЕКТ!🍀 <br>   <br> 🌴 1 место   FULL DOSTUP 2 LVL  <br> 🌴 2 место   FULL DOSTUP 2 LVL  <br> 🌴 3 место   FULL DOSTUP 1 LVL <br> 🌴 4 место   FULL DOSTUP 1 VLL <br> 🌴 5 место   ADMINKA 8 LVL <br> 🌴 6 место   ADMINKA 8 LVL  <br> 🌴 7 место   ADMINKA 7 LVL <br> 🌴 8 место   ADMINKA 7 LVL <br> 🌴 9 место   ЛЮБОЙ НОВЫЙ АККСЕСУАР +15 (с нашивками) <br> 🌴 10 место   VIP HOUSE LS + STAG VIP (ОТДЕЛЬНЫЙ МАППИНГ) <br> 🌴 11-15 место   НА ВЫБОР ЛЮБОЙ АККСЕСУАР + ЛЮБОЙ СКИН <br> 🌴 16-20 место   НА ВЫБОР ЛЮБОЙ МАШИНЫ + СКИН <br>   <br> ⚠ Условия конкурса:  <br>   <br> 1. Поставить ❤ на 10 последних записей группы включая конкурс  <br> 2. Написать комментарий, оставить свой ник +  <br> 3. Сделать репост конкурса  <br> 4. Подписаться на собщество: [club213654860 Arizona RP • STAG — Лучший бонусный сервер SAMP]  <br> 4. Подписаться на собщество: [club220678918 Мастерская   ARIZONA STAG]  <br> 6. Подписаться на Telegram: https://t.me/arizona_stag <br>  <br> ✅ Итоги конкурса: 20 сентября (2025), всем желаем удачи!  <br>   <br> ❗⚡ Наш сайт: arizonarp-stag.online недоступен  <br>  <br> ❗⚡Наш форум: forum.arizonarp-stag.online недоступен  <br> ❗ ⚡ Наш Магазин: arizonarp-stag.online/shop недоступен  <br>  <br> 🍀 САМЫЙ КРУПНЫЙ КОНКУРС НА ARIZONA RP   STAG • БОНУСНЫЙ ПРОЕКТ!🍀
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-213654860_3459" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-66.userapi.com/s/v1/if2/zgQ40LceuAV0nE1XmEYTYpt15IiNA4cLbI3X890hj0stmIUk4v5gOz6xlje0N1ML3IGTvjWBmEMWqs_4PNHbikX2.jpg?quality=95&as=32x13,48x19,72x29,108x43,160x64,240x96,360x144,480x192,540x216,640x256,720x288,1080x432,1280x512,1440x576,1920x768&from=bu&cs=1080x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>9</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>3</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>2</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>121</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post besplatno  city_24 city_11 city_12 city_5 city_20 city_16 city_2 city_6">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>11 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>89116</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>5252</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;">N/C 11%, Тамбов 11%, Магадан 11%, Москва 10%, Воронеж 7%, Санкт-Петербург 4%, Ногинск 3%, Великие Луки 3%, Екатеринбург 3%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-205094780_89116" target="_blank"><img src="https://sun9-3.userapi.com/s/v1/ig2/UG_LcRuVagjhCWcAJqRwpWjWny1ebvmGXyGU_i9M2kkMyHiNVKxLGPwx6yjoDVM4h8zH4eftVoGfCPaRnUk-tT9w.jpg?quality=95&crop=114,16,356,356&as=32x32,48x48,72x72,108x108,160x160,240x240&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-205094780_89116" target="_blank">Информационный портал о конкурсах и розыгрышах</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-205094780_89116" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-205094780_89116" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>#18_август_2025@info_portal_giveaways  <br>  <br> Деньги на шоппинг есть? Нет? Сейчас будут.  <br>   <br> Пришло время разыграть сертик на WB на 2000 ₽ 🔥 <br>   <br> ❗❗❗Данный конкурс проходит не у нас в сообществе, для того, чтобы поучаствовать, перейдите пожалуйста по ссылке: https://vk.com/wall-30786950_1076993 <br>   <br> Чтобы участвовать, нужно всего 3 шага:  <br> 1⃣ Подписаться на нашу группу  <br> 2⃣ Написать в комментах свой порядковый номер + слово "Участвую"  <br> 3⃣ Сделать репост этой записи к себе на стену  <br>   <br> 📅 Итоги — в понедельник, 18 августа, в 15:00  <br>   <br> Один сертификат, куча желающих. Успей поучаствовать 😎
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-205094780_89116" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-60.userapi.com/s/v1/ig2/a5Kqv-cINiYufv3jXCXop6AbmfuYFNjQgWsBcSEP6gfJbo8V3CxMUHlXZG0_ZFLnEzb3mh8gvOcwfP9LCQGuhmaJ.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640&from=bu&cs=640x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>8</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>1</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>407</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post all-konkurs  city_14 city_0 city_20 city_19">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>12 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>230</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>1</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;"><span style="color: red;">Мурманск</span> 38%, N/C 17%, Апатиты 6%, Санкт-Петербург 6%, Полярные Зори 4%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-230156690_230" target="_blank"><img src="https://sun9-82.userapi.com/s/v1/ig2/FU6kUtw8U22hbbTi_LcXhjeXjqYGATALeXFIOlHZPKAXtqp90g640xEfRcZcIZ8ViXGgWEn0T-jARs18obdN-e_Q.jpg?quality=95&crop=108,108,384,384&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-230156690_230" target="_blank">Мурманский кадровый центр</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-230156690_230" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-230156690_230" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>🏆 Конкурс фотографий «Моё ТрудоЛето» — покажи, как ты работал! <br>  <br> Вам от 14 до 17 лет и Вы провели лето не просто за отдыхом, а за реальной работой? <br>  <br> 🔊Пора рассказать об этом всем! Мурманский кадровый центр объявляет фотоконкурс для тех, кто трудился этим летом! <br>  <br> ✨ Условия участия : <br>  <br> — Возраст от 14 до 17 лет включительно <br> — Официальное трудоустройство этим летом по направлению ЦЗН <br> — Подписаться на нашу группу <br> — Сделать репост этого поста <br>  <br> 📸 Что нужно сделать? <br>  <br> 1⃣ Сделать 1–2 фото с места работы (в процессе, можно с коллегами или результатом труда). <br> 2⃣ Написать кратко: <br>  • Ваше имя (по желанию можно добавить и возраст); <br>  • Где работали; <br>  • Самое яркое впечатление (2–3 предложения). <br> 3⃣ Оформить все в посте на своей странице с указанием хэштега #Моё_ТрудоЛето и прислать ссылку на пост в сообщениях группы. <br>  <br> 🏆 Победит тот, кто наберет большее количество лайков под своим постом! <br>  <br> ⏰ СРОКИ: <br>  <br> Прием работ до 27 августа включительно. <br> Итоги подведем в последнюю пятницу уходящего лета - 29 августа <br>  <br> ❗ ВАЖНО: <br> — Работа должна быть официальной (через ЦЗН) <br> — Фото только реальные (не заимствованные с интернета или сгенерированные искусственным интеллектом) <br> — Подписка на группу + репост — обязательны <br> — Организаторы оставляют право использовать работы в соцсетях при публикации информации о конкурсе <br>  <br> 🎁Участвуйте в конкурсе и получите приз! <br>  <br> 🌟Пусть все увидят, как круто Вы провели трудовое лето! Ваш опыт вдохновит многих! <br>  <br> #Мурманский_кадровый_центр #Моё_ТрудоЛето #Трудоустройство_несовершеннолетних #Конкурс_фото #Мурманск_молодежь <br>  <br> --- <br> P.S. Вопросы? Пишите в сообщения группы! <br> P.P.S. Родители, поддержите детей репостами и лайками! 👨👩👧👦
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-230156690_230" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-58.userapi.com/s/v1/if2/dFj7wOhic4yyGulljVd--AwnZSrVHhOtn3-wU2_zUF2FXR0XN1WzgNDEAZlg0T_cc4iMiQbtU3cemeYFz5aRLxGS.jpg?quality=95&as=32x25,48x38,72x56,108x84,160x125,240x188,360x282,480x375,540x422,640x501,720x563,744x582&from=bu&cs=744x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>5</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>2</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>80</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post all-konkurs  city_1">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>13 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>14596</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>4</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;">N/C 51%, Архангельск 41%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-172780517_14596" target="_blank"><img src="https://sun9-16.userapi.com/s/v1/ig2/GeltPYpB7pFoJDbuHF5Jc0-GdtifCIPl2vFKF7OOJNKeV-TH_AFHnD-GigbQrQJTKg2aW12SDq4u6XECUb_GVcob.jpg?quality=95&crop=0,0,2000,2000&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-172780517_14596" target="_blank">30 АВГУСТА | БОЛЬШОЙ РЕЙВ | М33</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-172780517_14596" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-172780517_14596" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>☀ ДАРИМ 10 ПРОХОДОК ЗА РЕПОСТ! ☀ <br> На «Большой Рейв» 30 августа. <br>  <br> Тебе нужно выполнить несколько простых условий и, мы верим, что именно ты окажешься одним из счастливчиков и получишь бесплатную проходку.  <br>  <br> 1. Вступить во встречу [club172780517 @big_rave] ✔ <br> 2. Сделать репост этой записи и не удалять его до подведения итогов ✔ <br>  <br> Итоги 29 августа. Удачи! <br>  <br> Купить билет: arh.kassir.ru/koncert/m33/bolshaya-peremena_2025-08-30 <br> #большойрейв #школьныйрейв
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-172780517_14596" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src=" " width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>4</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>3</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>88</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post all-konkurs  city_18 city_20">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>14 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>1438</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>1</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;">N/C 49%, Пермь 23%, Санкт-Петербург 3%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-227794461_1438" target="_blank"><img src="https://sun9-12.userapi.com/s/v1/ig2/LHMm8Q-H96bZvYiJ8gnkgeYdVEcHJP3MvrzcXiOGtDKeznVkoXGHMeRVQirfRP_Fjrt92dayA_ytTaVWRjUQZTXK.jpg?quality=95&crop=247,276,1183,1183&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-227794461_1438" target="_blank">Нюра и Гарик</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-227794461_1438" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-227794461_1438" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>Ну что погнали ❤️❤️❤️😜😜😜 желаю удачи все и любви 😍 такой как наша любовь 👩‍❤️‍💋‍👨  <br> Разыгрываю 3 сертификата 😎 в золотое яблоко 😎  <br> Правило ‼️ <br> 1) подписка на наше сообщество ♥️ https://vk.com/club227794461 <br> 2) репост этого поста 👍 https://vk.com/wall-227794461_1438 <br> 3) комментарий к этому посту 😜 ( твое счастливое число )😊 https://vk.com/wall-227794461_1438 <br>  Всем любви ❤️❤️❤️ <br> УЧАВСТВОВАТЬ могут все !!!  <br> Итоги 7 сентября ❤️
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-227794461_1438" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-11.userapi.com/s/v1/if2/2WNHPjQRYTP1ovbqsc77mEAgYlVn3zmBIb7-feVmi4wqQtVpvJEHc4bIsV9Wk1HExG0UclUZsCCpkAMebJMhZu2i.jpg?quality=95&as=32x26,48x39,72x59,108x88,160x131,240x197,360x295,480x393,540x442,640x524,720x590,1080x884,1170x958&from=bu&cs=1080x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>3</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>3</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>3</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>174</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post food  city_22">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>15 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>1152</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>19</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;"><span style="color: red;">Старый Оскол</span> 51%, N/C 42%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-229374928_1152" target="_blank"><img src="https://sun9-26.userapi.com/s/v1/ig2/yg1ZFIa8oEJRYLgdX_2Ria1Mj6x-Dca9x1Iev-lCahFFYnibHzLaY7uAsFIu21ii31aIQMCZ5XFh306KYwPY9tNO.jpg?quality=95&crop=134,145,645,645&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-229374928_1152" target="_blank">КУДЗИРА | СУШИ, РОЛЛЫ | СТАРЫЙ ОСКОЛ</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-229374928_1152" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-229374928_1152" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>Дорогие друзья! 🐋 <br> Двадцатая волна и двадцатый розыгрыш! 😋 Хокаге ❤🍣  <br> Готовы получать роллы БЕСПЛАТНО? Тогда мы начинает! 🥳  <br>  <br> Условия просты : <br> 1) Подписаться на группу✅ <br> 2) Сфотографировать свой заказ с купоном ✅ <br> 3) Оставить отзыв на стене✅ <br> 4) Получить порядковый номер ✅ <br>  <br> Итоги подведем 25.08.2025 результаты будут опубликованы на стене сообщества.  <br>  <br> С Любовь, Кудзира ❤
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-229374928_1152" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-68.userapi.com/s/v1/ig2/oML5cAt-yNsayWHCQkhHx46DJLKFmmYOaC5V0aK_ocZcQ0hH5loaYRCFv7GViPGEfT6Q4g_5DcrhBikRsd-xOUtV.jpg?quality=95&as=32x45,48x68,72x102,108x153,160x227,240x340,360x510,480x680,540x765,640x906,720x1019,904x1280&from=bu&cs=904x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>2</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>1</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>92</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post all-konkurs  city_10">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>16 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>38919</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;"><span style="color: red;">Луганск</span> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-184772014_38919" target="_blank"><img src="https://sun9-25.userapi.com/s/v1/ig2/qVoDILURWtAUNFk1zd5ppxtkuc7JYXT3mhvqfk-i2ueEb35OT_oM-rpYgkzmXMja-yzu-lLCMKgAYWY-YcN_IDMq.jpg?quality=95&crop=132,61,491,491&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-184772014_38919" target="_blank">Объявления|Барахолка Алчевск, Брянка, Стаханов</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-184772014_38919" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>40</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    <a href="https://vk.com/wall-188907878_26146" target="_blank">https://vk.com/wall-188907878_26146</a><a href="https://vk.com/wall-223366421_21413" target="_blank">https://vk.com/wall-223366421_21413</a><a href="https://vk.com/wall-226638678_22195" target="_blank">https://vk.com/wall-226638678_22195</a><a href="https://vk.com/wall-184459189_31038" target="_blank">https://vk.com/wall-184459189_31038</a><a href="https://vk.com/wall-219204134_24890" target="_blank">https://vk.com/wall-219204134_24890</a><a href="https://vk.com/wall-205576373_24218" target="_blank">https://vk.com/wall-205576373_24218</a><a href="https://vk.com/wall-228047618_20580" target="_blank">https://vk.com/wall-228047618_20580</a><a href="https://vk.com/wall-176052764_34586" target="_blank">https://vk.com/wall-176052764_34586</a><a href="https://vk.com/wall-198323686_25280" target="_blank">https://vk.com/wall-198323686_25280</a><a href="https://vk.com/wall-226610602_22213" target="_blank">https://vk.com/wall-226610602_22213</a><a href="https://vk.com/wall-176826956_58975" target="_blank">https://vk.com/wall-176826956_58975</a><a href="https://vk.com/wall-188946184_32781" target="_blank">https://vk.com/wall-188946184_32781</a><a href="https://vk.com/wall-226604266_22365" target="_blank">https://vk.com/wall-226604266_22365</a><a href="https://vk.com/wall-226604624_21845" target="_blank">https://vk.com/wall-226604624_21845</a><a href="https://vk.com/wall-226603800_22156" target="_blank">https://vk.com/wall-226603800_22156</a><a href="https://vk.com/wall-226606815_22217" target="_blank">https://vk.com/wall-226606815_22217</a><a href="https://vk.com/wall-226606720_22125" target="_blank">https://vk.com/wall-226606720_22125</a><a href="https://vk.com/wall-226610320_22298" target="_blank">https://vk.com/wall-226610320_22298</a><a href="https://vk.com/wall-194181621_26677" target="_blank">https://vk.com/wall-194181621_26677</a><a href="https://vk.com/wall-194311440_25282" target="_blank">https://vk.com/wall-194311440_25282</a><a href="https://vk.com/wall-189634799_42683" target="_blank">https://vk.com/wall-189634799_42683</a><a href="https://vk.com/wall-223365419_22030" target="_blank">https://vk.com/wall-223365419_22030</a><a href="https://vk.com/wall-176049654_38642" target="_blank">https://vk.com/wall-176049654_38642</a><a href="https://vk.com/wall-230350883_8786" target="_blank">https://vk.com/wall-230350883_8786</a><a href="https://vk.com/wall-230350825_8805" target="_blank">https://vk.com/wall-230350825_8805</a><a href="https://vk.com/wall-230347682_8864" target="_blank">https://vk.com/wall-230347682_8864</a><a href="https://vk.com/wall-218173985_21212" target="_blank">https://vk.com/wall-218173985_21212</a><a href="https://vk.com/wall-230348754_8749" target="_blank">https://vk.com/wall-230348754_8749</a><a href="https://vk.com/wall-230350948_8752" target="_blank">https://vk.com/wall-230350948_8752</a><a href="https://vk.com/wall-219381109_22476" target="_blank">https://vk.com/wall-219381109_22476</a><a href="https://vk.com/wall-170460308_29259" target="_blank">https://vk.com/wall-170460308_29259</a><a href="https://vk.com/wall-226226511_22060" target="_blank">https://vk.com/wall-226226511_22060</a><a href="https://vk.com/wall-230350900_8748" target="_blank">https://vk.com/wall-230350900_8748</a><a href="https://vk.com/wall-194162790_23982" target="_blank">https://vk.com/wall-194162790_23982</a><a href="https://vk.com/wall-226611096_22301" target="_blank">https://vk.com/wall-226611096_22301</a><a href="https://vk.com/wall-195170414_16693" target="_blank">https://vk.com/wall-195170414_16693</a><a href="https://vk.com/wall-162873377_54865" target="_blank">https://vk.com/wall-162873377_54865</a><a href="https://vk.com/wall-228319885_14870" target="_blank">https://vk.com/wall-228319885_14870</a><a href="https://vk.com/wall-230349363_8801" target="_blank">https://vk.com/wall-230349363_8801</a><a href="https://vk.com/wall759988517_22428" target="_blank">https://vk.com/wall759988517_22428</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-184772014_38919" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>🚙 АВТОМОБИЛЬ ЗА ЛАЙК! 🚙 <br> Друзья, отличные новости — запускаем розыгрыш автомобиля среди наших подписчиков! <br> 🎁 Приз: легендарный УАЗ Патриот <br> Условия участия максимально простые: <br> 1⃣ Поставьте лайк и оставьте комментарий под этим постом <br> 2⃣ Сделайте репост на свою страницу <br> 3⃣ Подпишитесь на нашу группу 👉 vk.com/soutukraine <br> 4⃣ Победитель забирает приз лично <br> 💡 Отмечайте друзей в комментариях — так вы увеличите свои шансы на победу! <br> 🏆 Победителя выберем с помощью рандомайзера уже в течение месяца. <br> 🔥 Удачи всем! 🔥 <br> #розыгрыш #авто #донецк #луганск #донбасс #ДНР #ЛНР #soutukraine <br> 📣14.08.25 - 28.08.2025
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-184772014_38919" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-53.userapi.com/s/v1/if2/Jhin86SnYyie8nOH9uJ-ynSXq3dS0Y_-w11YojqoUa8fVvF_o_8SWf5sIdHopJzxQbVXVAZqKf_qNKFx776CHuJP.jpg?quality=96&as=32x25,48x37,72x56,108x84,160x124,240x186,360x279,480x372,540x418,624x483&from=bu&cs=624x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post telegram ">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>19 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>6</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-231192861_6" target="_blank"><img src="https://sun9-69.userapi.com/s/v1/ig2/e9zrw5aLUqssG2zuvtFt_LmPRbWfrcQxKzPhHTEz5UlHOM1XujdUYmUfHsXTKAgT0cWvNf0Cq2OPAve52cEW2yeL.jpg?quality=95&crop=70,70,597,597&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-231192861_6" target="_blank">КЕРАТИН | БОТОКС | ТОТАЛ.РЕКОНСТРУКЦИЯ | УХОД</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-231192861_6" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-231192861_6" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>‼️РОЗЫГРЫШ‼️ <br> Холодное восстановление <br>  <br> условия: <br> •быть подписанным на канал https://t.me/vviolkakeratinsaratov и это сообщество  <br> • репостнуть этот пост к себе в историю или тг канал  <br> •скинуть мне скрин выполненных условий  <br>  <br> после я пришлю вам номер участника, победителя выберет рандомайзер <br>  <br> результаты — 05.09 <br>  <br> всем удачи🤍
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-231192861_6" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-88.userapi.com/s/v1/ig2/dphR7tCvccIXl6-xuAF5GQ66uIzBQeWQNp5r-o8ETQEThfgqLgTFsp0-2BpFrhgFabGgT2tgcsI8yN3Qx4FnavtM.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853&from=bu&cs=640x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>3</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>137</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post besplatno  city_17 city_18 city_15 city_14 city_20 city_7 city_13">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>20 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>24348</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>21</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;">N/C 45%, Омск 14%, Пермь 9%, Новосибирск 4%, Мурманск 4%, Санкт-Петербург 4%, Заинск 4%, Муравленко 4%, </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall-211883320_24348" target="_blank"><img src="https://sun9-17.userapi.com/s/v1/ig2/8NWjX-iJwMIewIGIW8hxZW6kPZbGSwfJJ_rtnoVfmtCI_mE7n0WdO8CYuvrPHd3zNXKiqD2DbVWdfkvEYJIV8vBT.jpg?quality=95&crop=460,460,1636,1636&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall-211883320_24348" target="_blank">Списки конкурсов по России</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall-211883320_24348" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="-211883320_24348" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>🎁Дарим: набор кухонных полотенец  (без репоста) <br> 📅Победителя определим: 19 августа <br> 🔗Ссылка на конкурс: https://vk.com/wall-210572347_2872070 <br>  <br> #розыгрыш #подарок #дом #акция #длядома #семья #находки #маркетплейсы #халява #бесплатно
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="-211883320_24348" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src="https://sun9-44.userapi.com/s/v1/ig2/HLm9Tsd2B6SAJJcvktU8T9W7zoI3W4xBdygQdNYW88JepG2VcpIQNrV0Kd-F-e2A8jaYaUAn9fru42Uh2YOl18OM.jpg?quality=96&as=32x46,48x69,72x104,108x156,160x231,240x346,360x519,480x692,540x778,640x923,720x1038&from=bu&cs=720x0" width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>25</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+        <div class="post owneruser ">
+            <div class="info_middle2 style="--accent-color: #D00903"">
+                <div class="info_middle-left2">
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="tooltipable" data-tooltip="Группа в черном списке. Не рекомендуется к участию.">
+                                
+                            </div>
+
+                            <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+                                    <p>22 </p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество записей в групепе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="fluent:window-inprivate-account-20-filled" style="color: #2f2f2f;"></span>
+                                    <p>9585</p>
+                                </div>
+                            </div>
+                            <div class="tooltipable" data-tooltip="Количество конкурсов в группе">
+                                <div class="likes">
+                                    <span class="iconify" data-icon="tabler:rosette-discount-check-filled" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="tooltipable" data-tooltip="Локализация участников">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+                                    <p style="color: #7f7f7f;"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line1"></div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="profile_post_size">
+                                <div class="profile_post_pic">
+                                    <a href="https://vk.com/wall566347357_9585" target="_blank"><img src="https://sun9-44.userapi.com/s/v1/ig2/ikcx0COzehm5Jx2FCnZqzOk9R_7QROWXz8AtuMtqYULLCg-z_aN6BAM33MUuBVj6-SivsdAr77ZPWr7dvIDEuzeF.jpg?quality=95&crop=276,477,1517,1517&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440&ava=1&cs=50x50" alt=""></a>
+                                </div>
+
+                                <div class="profile_post_name_status">
+                                    <a href="https://vk.com/wall566347357_9585" target="_blank">Марина Баталова</a>
+                                    <a style="color: #7f7f7f;" href="https://vk.com/wall566347357_9585" target="_blank">2025-08-18</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="profile_rating_right">
+
+                            <div class="dropdown">
+                                <div class="viewers">
+                                    <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+                                    <p>0</p>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>        
+
+                    <br>
+
+                    <div class="profile_post_information">
+                        <div class="block">
+                            <input type="checkbox" id="566347357_9585" data-more-checker="read-more" />
+                            <div class="limiter">
+                                <p>Друзья! На время моего короткого отпуска, я запускаю конкурс или розыгрыш 👋👉,за расклад всего по 200р🍓.Для участия в конкурсе вам нужно написать под этим постом любой интересный отзыв о моих ритуалах или раскладах 😉.21 августа  я подведу итоги ,за понравившиеся отзывы! Прошу всех максимально принять участие в этом розыгрыше💜💙.
+</p>
+                            </div>    
+                            <div class="bottom">
+                            </div>
+                            <label for="566347357_9585" class="read-more-button"></label>
+                        </div>
+                        <br>
+                        <img data-src=" " width="400" alt="" class="lazy">
+                    </div>
+
+                    <div class="profile_rating">
+                        <div class="profile_rating_left">
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div>
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+
+                            <div class="likes">
+                                <span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span>
+                                <p>0</p>
+                            </div> 
+                        </div>
+
+                        <div class="profile_rating_right">
+                            <div class="viewers">
+                                <span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span>
+                                <p>49</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+        
+                </div>
+            </div>
+
+            <script>
+
+
+
+
+
+$(document).ready(function() {
+    const searchInput = $('#search-input');
+    const searchResults = $('#search-results');
+
+    // Сохраняем оригинальный текст и HTML limiter'ов
+    const limiterData = {};
+    $('.post').each(function() {
+        const post = $(this);
+        const id = post.attr('id') || Math.random().toString(36).substr(2, 9);
+        post.attr('data-id', id);
+
+        const limiter = post.find('.limiter');
+        limiterData[id] = {
+            html: limiter.html(),
+            text: limiter.text().toLowerCase().replace(/\s+/g, ' ')
+        };
+    });
+
+    // Восстановление оригинального состояния
+    const restoreOriginalState = function() {
+        $('.post').each(function() {
+            const id = $(this).attr('data-id');
+            $(this).find('.limiter').html(limiterData[id].html);
+        });
+    };
+
+    // Нечеткое сравнение слов
+    const isFuzzyMatch = function(textWord, searchWord) {
+        if (searchWord.length <= 3) {
+            return textWord === searchWord;
+        }
+
+        // Быстрая проверка похожести слов
+        let matches = 0;
+        const minLength = Math.min(textWord.length, searchWord.length);
+
+        for (let i = 0; i < minLength; i++) {
+            if (textWord[i] === searchWord[i]) matches++;
+        }
+
+        const similarity = matches / searchWord.length;
+        return similarity >= 0.9; // 90% совпадение
+    };
+
+    // Проверка что все слова найдены в limiter'е
+    const containsAllWords = function(text, searchWords) {
+        const textWords = text.split(/[\s\-.,;!?]+/);
+
+        return searchWords.every(searchWord => {
+            // Сначала проверяем точное вхождение
+            if (text.includes(searchWord)) return true;
+
+            // Затем нечеткое сравнение с каждым словом текста
+            return textWords.some(textWord => 
+                isFuzzyMatch(textWord, searchWord)
+            );
+        });
+    };
+
+    // Безопасная подсветка совпадений в limiter'е
+    const highlightMatches = function(post, searchWords) {
+        const id = post.attr('data-id');
+        const limiter = post.find('.limiter');
+        limiter.html(limiterData[id].html);
+
+        // Обрабатываем только текстовые узлы внутри limiter'а
+        const walker = document.createTreeWalker(
+            limiter.get(0),
+            NodeFilter.SHOW_TEXT,
+            null,
+            false
+        );
+
+        const textNodes = [];
+        while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+        textNodes.forEach(node => {
+            const words = node.nodeValue.split(/([\s\-.,;!?]+)/);
+            const fragment = document.createDocumentFragment();
+
+            words.forEach(word => {
+                if (!word || /^[\s\-.,;!?]+$/.test(word)) {
+                    fragment.appendChild(document.createTextNode(word));
+                    return;
+                }
+
+                const lowerWord = word.toLowerCase();
+                let shouldHighlight = false;
+
+                for (const searchWord of searchWords) {
+                    if (lowerWord === searchWord || 
+                        (searchWord.length > 3 && isFuzzyMatch(lowerWord, searchWord))) {
+                        shouldHighlight = true;
+                        break;
+                    }
+                }
+
+                if (shouldHighlight) {
+                    const span = document.createElement('span');
+                    span.className = 'highlight';
+                    span.textContent = word;
+                    fragment.appendChild(span);
+                } else {
+                    fragment.appendChild(document.createTextNode(word));
+                }
+            });
+
+            node.parentNode.replaceChild(fragment, node);
+        });
+    };
+
+    // Основная функция поиска
+    const performSearch = function() {
+        const searchTerm = searchInput.val().trim().toLowerCase();
+
+        if (searchTerm === '') {
+            searchResults.text('');
+            restoreOriginalState();
+            $('.post.show').show();
+            return;
+        }
+
+        const searchWords = searchTerm.split(/[\s\-.,;!?]+/).filter(w => w.length > 0);
+        let foundCount = 0;
+
+        $('.post.show').each(function() {
+            const post = $(this);
+            const id = post.attr('data-id');
+            const limiterText = limiterData[id].text;
+
+            if (containsAllWords(limiterText, searchWords)) {
+                highlightMatches(post, searchWords);
+                post.show();
+                foundCount++;
+            } else {
+                post.hide();
+            }
+        });
+
+        searchResults.text(foundCount > 0 
+            ? `Найдено постов: ${foundCount}` 
+            : 'Ничего не найдено');
+    };
+
+    // Обработчики событий
+    searchInput.on('keyup', function(e) {
+        if (e.key === 'Enter') performSearch();
+    });
+
+    let searchTimeout;
+    searchInput.on('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(performSearch, 300);
+    });
+
+    // При изменении фильтров
+    $(document).on('filterChanged', performSearch);
+});
+
+
+
+            </script>
+        </body>
+    </html>
+    
