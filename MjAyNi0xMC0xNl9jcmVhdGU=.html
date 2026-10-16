@@ -1,0 +1,441 @@
+
+	<html>
+	    <head>
+	        <meta charset="UTF-8">
+	        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	        <title>Жираф - Клуб любителей розыгрышей</title>
+	        <style>
+	pre { white-space: pre-wrap; word-wrap: break-word; }
+	.lazy { display: inline-block; min-width: 300px; }
+	@import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
+	* { margin:0; padding: 0; box-sizing: border-box; }
+	body { background-color: #edeef0; }
+	body.pre-check { display: none !important; }
+	.page { display: flex; flex-direction: column; justify-content: center; background-color: #edeef0; color: #404040; font-family: 'Dela Gothic One', cursive; font-family: 'Sofia Sans Extra Condensed', sans-serif; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 14px; }
+	.iconify { display: flex; flex-direction: column; color: rgb(113,170,235); font-size: 18px; justify-content: center; align-items: center; }
+	iconify-icon { display: inline-block; vertical-align: middle; }
+	a { display: flex; text-decoration: none; align-items: center; color: #46588d; }
+	a:visited { color: #acb5cc; }
+	.info_middle2 { display: flex; width: 100%; max-width: 600px; border-radius: 17px; margin-inline: auto; }
+	.info_middle-left2 { display: flex; flex-direction: column; width: 100%; max-width: 600px; padding: 13px; box-shadow: 5px 5px 10px rgba(0,0,0,0.3); background-image: linear-gradient(to bottom right, #f9fafc, #ffffff); border-radius: inherit; filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.25)); box-shadow: inset 2px 2px 2px white, inset -1px -1px 1px rgba(0, 0, 0, 0.25); }
+	.line1 { position: relative; margin-block: 15px; width: 100%; height: 1px; background-color: rgb(180, 180, 180); }
+	.profile_post_size { display: flex; align-items: center; }
+	.profile_post_size img { width: 40px; border-radius: 50px; }
+	.profile_post_pic a { display: flex; justify-content: center; text-align: center; height: 100%; font-size: 15px; color: red; }
+	.profile_post_name_status { margin-left: 8px; }
+	.profile_post_name_status p { font-size: 14px; color: #7f7f7f; }
+	.profile_post_name_status a { font-size: 14px; }
+	.profile_post_information img { width: 100%; border-radius: 12px; object-fit: contain; }
+	.post-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 15px; line-height: 1.6; color: #2c2c2c; text-align: left; word-wrap: break-word; font-weight: 400; letter-spacing: 0.2px; }
+	.profile_rating { display: flex; margin-top: 8px; justify-content: space-between; }
+	.profile_rating_left, .profile_rating_right { display: flex; }
+	.likes, .viewers { display: flex; padding-block: 5px; padding-inline: 8px; cursor: default; align-items: center; }
+	.likes p, .viewers p { margin-left: 4px; color: #828282; }
+	.limiter { max-height: 130px; overflow: hidden; position: relative; }
+	.limiter .bottom { position: absolute; bottom: 0; background: linear-gradient(to bottom, rgb(255 217 29 / 0%), rgb(255 255 255) 85%); width: 100%; height: 60px; opacity: 1; transition: 0.3s; }
+	[data-more-checker^="read-more"] { opacity: 0; position: absolute; }
+	[data-more-checker^="read-more"]:checked ~ .limiter { max-height: none; }
+	[data-more-checker^="read-more"]:checked ~ .limiter .bottom { opacity: 0; }
+	[data-more-checker^="read-more"] ~ .read-more-button:before { content: "Показать ещё..."; }
+	[data-more-checker^="read-more"]:checked ~ .read-more-button:before { content: "Свернуть"; }
+	.read-more-button { cursor: pointer; display: inline-block; color: #777; text-decoration: underline; }
+	.dropdown { position: relative; display: inline-block; text-align: right; }
+	.dropdown-content { display: none; position: absolute; z-index: 1; background-color: #ffffff; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); padding: 12px 16px; text-align: right; right: 0; border-radius: 8px; }
+	.dropdown:hover .dropdown-content { display: block; }
+	.dropdown-content a { display: block; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
+	.tooltipable::after { content: attr(data-tooltip); display: none; position: absolute; background-color: #ffffff; color: #828282; padding: 5px; border-radius: 4px; z-index: 1000; pointer-events: none; margin-top: 5px; }
+	.tooltipable:hover::after { display: block; }
+	.buttons { display: flex; flex-direction: column; margin-bottom: 20px; }
+	.btn { padding: 10px; border: none; cursor: pointer; width: 100%; margin-bottom: 10px; text-align: left; display: flex; justify-content: flex-start; align-items: center; background-color: #f0f0f0; color: #46588d; border-radius: 8px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 14px; }
+	.btn iconify-icon { font-size: 20px; color: #46588d; margin-right: 8px; }
+	.btn.active { background-color: #4CAF50; color: white; }
+	.btn.active iconify-icon { color: white; }
+	.post { padding: 10px; margin-bottom: 10px; display: none; }
+	.post.show { display: flex; }
+	select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background-color: #fff; }
+	#search-container { margin: 20px 0; padding: 15px; background: #f5f5f5; border-radius: 17px; box-shadow: inset 2px 2px 2px white, inset -1px -1px 1px rgba(0, 0, 0, 0.25); }
+	#search-input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
+	#search-results { margin-top: 10px; color: #7f7f7f; font-size: 14px; }
+	.highlight { background-color: yellow; padding: 0 2px; }
+	</style>
+
+	        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	        <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+	        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+	        <link rel="preconnect" href="https://fonts.googleapis.com">
+	        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	        <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Sofia+Sans+Extra+Condensed:wght@1;200;400;800&display=swap" rel="stylesheet">
+
+	        <script>
+	function createErrorPage(message) {
+	    return `
+	        <!DOCTYPE html>
+	        <html>
+	        <head>
+	            <style>
+	                body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: Arial, sans-serif; background-color: #f8f9fa; color: #dc3545; }
+	                .error-container { text-align: center; padding: 20px; border: 2px solid #dc3545; border-radius: 10px; background-color: white; max-width: 80%; }
+	                h1 { font-size: 24px; margin-bottom: 10px; }
+	            </style>
+	        </head>
+	        <body>
+	            <div class="error-container">
+	                <h1>${message}</h1>
+	                <p>Пожалуйста, запросите новую ссылку</p>
+	            </div>
+	        </body>
+	        </html>
+	    `;
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+	    const urlParams = new URLSearchParams(window.location.search);
+	    const trustedParam = urlParams.get('t');
+
+	    if (trustedParam !== '1') {
+	        document.write(createErrorPage('Ошибка загрузки.'));
+	        document.close();
+	        return; 
+	    } else {
+	        document.body.classList.remove('pre-check');
+	    }
+	});
+	</script>
+	    </head>
+
+	    <body class="pre-check">
+	        <div class="page">
+	            <br>
+	            <div class="info_middle2" style="--accent-color: #D00903">
+	                <div class="info_middle-left2">
+	                    <br>
+	                    <p>Выберите тематики, которые вас интересуют:</p>
+	                    <br>
+	                    <div class="buttons">
+	                        <button class="btn" data-filter="theme_другое">
+	        <iconify-icon icon="ph:dots-three"></iconify-icon>
+	        Другое (2)
+	    </button>
+
+	                    </div>
+	                    <br>
+	                    <p>Выберите город:</p>
+	                    <br>
+	                    <select name="cities" id="city-select">
+	                        <option class="btn" data-filter="city_all">Все города</option>
+
+	                    </select>
+	                    <br>
+	                </div>
+	            </div>
+	            <br>
+	            <div class="info_middle2" style="--accent-color: #D00903">
+	                <div class="info_middle-left2">
+	                    <div id="search-container">
+	                        <input type="text" id="search-input" placeholder="Поиск по тексту в постах...">
+	                        <div id="search-results"></div>
+	                    </div>
+	                </div>
+	            </div>
+	            <br>
+	            <div class="posts">
+	
+	    <div class="post theme_другое ">
+	        <div class="info_middle2" style="--accent-color: #D00903">
+	            <div class="info_middle-left2">
+	                <div class="profile_rating">
+	                    <div class="profile_rating_left">
+	                        <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+	                            <div class="likes">
+	                                <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+	                                <p>1 </p>
+	                            </div>
+	                        </div>
+	                        <div class="tooltipable" data-tooltip="Тематика конкурса">
+	                            <div class="likes">
+	                                <span class="iconify" data-icon="tabler:category" style="color: #2f2f2f;"></span>
+	                                <p>Другое</p>
+	                            </div>
+	                        </div>
+
+	                    </div>
+	                    <div class="profile_rating_right">
+	                        <div class="tooltipable" data-tooltip="География">
+	                            <div class="viewers">
+	                                <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+	                                <p style="color: #7f7f7f;"></p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="line1"></div>
+	                <div class="profile_rating">
+	                    <div class="profile_rating_left">
+	                        <div class="profile_post_size">
+	                            <div class="profile_post_pic">
+	                                <a href="https://vk.com/wall-213870776_22516" target="_blank">
+										<img src="https://sun9-83.vkuserphoto.ru/s/v1/ig2/KTbrKgGN5hJ-t9lb8pdHU1waWS1h2gED6S4DZyD4dR9P6rIqiGHWfY3wO9TX8tePTbxNF8m8h34xVRf1dGsgF4De.jpg?quality=95&crop=106,119,1003,1003&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720&ava=1&cs=50x50" alt="Avatar" loading="lazy">
+									</a>
+	                            </div>
+	                            <div class="profile_post_name_status">
+	                                <a href="https://vk.com/wall-213870776_22516" target="_blank">Uwu`cat ♡ perfect world</a>
+	                                <a style="color: #7f7f7f; display: block; margin-top: 4px;" href="https://vk.com/wall-213870776_22516" target="_blank">Создан: 2026-10-16 | Итог: 2026-10-19</a>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="profile_rating_right">
+	                        <div class="dropdown">
+	                            <div class="viewers">
+	                                <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+	                                <p>0</p>
+	                            </div>
+	                            <div class="dropdown-content">
+	                                <span style="color:#7f7f7f">Нет похожих</span>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>        
+	                <br>
+	                <div class="profile_post_information">
+	                    <div class="block">
+	                        <input type="checkbox" id="-213870776_22516" data-more-checker="read-more" />
+	                        <div class="limiter">
+	                            <p class="post-text"><b>🎁 Призы:</b><br>• большие промики<br>• маленькие промики<br><br>Разыграем 5 больших и 10 маленьких промиков🔥  <br> Победители буду объявлены 19.10🔥✌  <br> Условия:  <br> - лайк  <br> - подписка  <br> - любой комментарий!( можно ваши мысли о слияние ) <br>   <br> #Лотерея@uwukowka  <br> #Конкурс@uwukowka  <br> #pw  <br> #perfect_world  <br> #perfectworld</p>
+	                        </div>    
+	                        <div class="bottom"></div>
+	                        <label for="-213870776_22516" class="read-more-button"></label>
+	                    </div>
+	                    <br>
+						<img data-src="https://sun9-83.vkuserphoto.ru/s/v1/ig2/VWUlj6x1Z1TfxaJb7B19RTJUKOxeDBQLvgiSCs-QGUOrtpTsNbuTWswp-mxhPyKEvUyqtI-T5t9dVgWJzKnpIdtG.jpg?quality=95&crop=0,0,2560,1723&as=32x22,48x32,72x48,108x73,160x108,240x162,360x242,480x323,540x363,640x431,720x485,1080x727,1280x861,1440x969,2560x1723&from=bu&cs=1080x0" 
+							src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+							width="400" 
+							alt="" 
+							class="lazy" 
+							loading="lazy" 
+							onerror="this.style.display='none'">
+     	            </div>
+	                <div class="profile_rating">
+	                    <div class="profile_rating_left">
+	                        <div class="likes"><span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span><p>13</p></div>
+	                        <div class="likes"><span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span><p>1</p></div> 
+	                        <div class="likes"><span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span><p>11</p></div> 
+	                    </div>
+	                    <div class="profile_rating_right">
+	                        <div class="viewers"><span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span><p>126</p></div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <br>
+	    </div>
+	    
+	    <div class="post theme_другое ">
+	        <div class="info_middle2" style="--accent-color: #D00903">
+	            <div class="info_middle-left2">
+	                <div class="profile_rating">
+	                    <div class="profile_rating_left">
+	                        <div class="tooltipable" data-tooltip="Порядковый номер конкурса">
+	                            <div class="likes">
+	                                <span class="iconify" data-icon="tabler:number" style="color: #2f2f2f;"></span>
+	                                <p>2 </p>
+	                            </div>
+	                        </div>
+	                        <div class="tooltipable" data-tooltip="Тематика конкурса">
+	                            <div class="likes">
+	                                <span class="iconify" data-icon="tabler:category" style="color: #2f2f2f;"></span>
+	                                <p>Другое</p>
+	                            </div>
+	                        </div>
+
+	                    </div>
+	                    <div class="profile_rating_right">
+	                        <div class="tooltipable" data-tooltip="География">
+	                            <div class="viewers">
+	                                <span class="iconify" data-icon="ph:city" style="color: #2f2f2f;"></span>
+	                                <p style="color: #7f7f7f;"></p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="line1"></div>
+	                <div class="profile_rating">
+	                    <div class="profile_rating_left">
+	                        <div class="profile_post_size">
+	                            <div class="profile_post_pic">
+	                                <a href="https://vk.com/wall-229307267_160" target="_blank">
+										<img src="https://sun9-50.vkuserphoto.ru/s/v1/ig2/AU0ikv2H9f5zXJWq4mCE8aNjxM48qhq1TaA_T_H-dcJDbJC_UpTHcDcyQ1FreJ8OSUd4H48fxS67yOzmYvi89DaKzJPHpQ.jpg?quality=95&crop=354,132,456,456&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360&ava=1&cs=50x50" alt="Avatar" loading="lazy">
+									</a>
+	                            </div>
+	                            <div class="profile_post_name_status">
+	                                <a href="https://vk.com/wall-229307267_160" target="_blank">Нейропесня | создать песню нейросетью</a>
+	                                <a style="color: #7f7f7f; display: block; margin-top: 4px;" href="https://vk.com/wall-229307267_160" target="_blank">Создан: 2026-10-16 | Итог: Не найдено</a>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="profile_rating_right">
+	                        <div class="dropdown">
+	                            <div class="viewers">
+	                                <span class="iconify" data-icon="ic:baseline-density-small" style="color: #2f2f2f;"></span>
+	                                <p>0</p>
+	                            </div>
+	                            <div class="dropdown-content">
+	                                <span style="color:#7f7f7f">Нет похожих</span>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>        
+	                <br>
+	                <div class="profile_post_information">
+	                    <div class="block">
+	                        <input type="checkbox" id="-229307267_160" data-more-checker="read-more" />
+	                        <div class="limiter">
+	                            <p class="post-text"><b>🎁 Призы:</b><br>• бесплатная генерация песни<br><br>🎁 ЕЖЕДНЕВНЫЙ РОЗЫГРЫШ «НейроПесня» <br>  <br> ❤️ Поставьте лайк этой записи <br> ✅ Подпишитесь на сообщество <br>  <br> 🎵 Приз: 1 бесплатная генерация песни <br> ⏰ Итоги — сегодня в 23:00 МСК. <br>  <br> Победителя выберем случайно среди тех, кто выполнил условия.</p>
+	                        </div>    
+	                        <div class="bottom"></div>
+	                        <label for="-229307267_160" class="read-more-button"></label>
+	                    </div>
+	                    <br>
+						<img data-src="https://sun9-68.vkuserphoto.ru/s/v1/ig2/35slKsGWgyyTbTpxbu6PjKK1qqEd9WJJe0kTbl-JReRrC3CwiOSkxerbDyP8aldJVRx1ROIdwGHHVqkrT_tvZyAM.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=1080x0" 
+							src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+							width="400" 
+							alt="" 
+							class="lazy" 
+							loading="lazy" 
+							onerror="this.style.display='none'">
+     	            </div>
+	                <div class="profile_rating">
+	                    <div class="profile_rating_left">
+	                        <div class="likes"><span class="iconify" data-icon="ph:heart-fill" style="color: #828282;"></span><p>1</p></div>
+	                        <div class="likes"><span class="iconify" data-icon="ph:share-fat-fill" style="color: #828282;"></span><p>0</p></div> 
+	                        <div class="likes"><span class="iconify" data-icon="ph:chat-dots-bold" style="color: #828282;"></span><p>0</p></div> 
+	                    </div>
+	                    <div class="profile_rating_right">
+	                        <div class="viewers"><span class="iconify" data-icon="ion:eye-sharp" style="color: #828282;"></span><p>28</p></div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <br>
+	    </div>
+	    
+	            </div>
+	        </div>
+	    </div>
+
+	    <script>
+	$(document).ready(function() {
+	    const observer = new IntersectionObserver((entries, observer) => {
+	        entries.forEach(entry => {
+	            if (entry.isIntersecting) {
+	                const img = entry.target;
+	                img.src = img.getAttribute('data-src');
+	                observer.unobserve(img);
+	            }
+	        });
+	    }, { rootMargin: '0px 0px 2000px 0px' });
+	    $('.lazy').each(function() { observer.observe(this); });
+
+	    $('.btn').click(function() {
+	        $(this).toggleClass('active');
+	        let filters = [];
+	        $('.btn.active').each(function() { filters.push($(this).data('filter')); });
+	        $('.post').each(function() {
+	            let post = $(this);
+	            let show = filters.length === 0;
+	            for (let i = 0; i < filters.length; i++) {
+	                if (post.hasClass(filters[i])) { show = true; break; }
+	            }
+	            if (show) post.addClass('show'); else post.removeClass('show');
+	        });
+	        $(document).trigger('filterChanged');
+	    });
+
+	    $('#city-select').on('change', function() {
+	        var selectedFilter = $(this).find(':selected').data('filter');
+	        $('.post').each(function() {
+	            var post = $(this);
+	            if (selectedFilter === 'city_all' || post.hasClass(selectedFilter)) {
+	                post.addClass('show');
+	            } else {
+	                post.removeClass('show');
+	            }
+	        });
+	        $(document).trigger('filterChanged');
+	    });
+	    $('.post').addClass('show');
+	});
+
+	$(document).ready(function() {
+	    const searchInput = $('#search-input');
+	    const searchResults = $('#search-results');
+	    const limiterData = {};
+	    $('.post').each(function() {
+	        const post = $(this);
+	        const id = post.attr('id') || Math.random().toString(36).substr(2, 9);
+	        post.attr('data-id', id);
+	        const limiter = post.find('.limiter');
+	        limiterData[id] = { html: limiter.html(), text: limiter.text().toLowerCase().replace(/\s+/g, ' ') };
+	    });
+
+	    const restoreOriginalState = function() {
+	        $('.post').each(function() { $(this).find('.limiter').html(limiterData[$(this).attr('data-id')].html); });
+	    };
+
+	    const isFuzzyMatch = function(textWord, searchWord) {
+	        if (searchWord.length <= 3) return textWord === searchWord;
+	        let matches = 0;
+	        const minLength = Math.min(textWord.length, searchWord.length);
+	        for (let i = 0; i < minLength; i++) { if (textWord[i] === searchWord[i]) matches++; }
+	        return (matches / searchWord.length) >= 0.9;
+	    };
+
+	    const containsAllWords = function(text, searchWords) {
+	        const textWords = text.split(/[\s\-.,;!?]+/);
+	        return searchWords.every(searchWord => text.includes(searchWord) || textWords.some(textWord => isFuzzyMatch(textWord, searchWord)));
+	    };
+
+	    const highlightMatches = function(post, searchWords) {
+	        const id = post.attr('data-id');
+	        const limiter = post.find('.limiter');
+	        limiter.html(limiterData[id].html);
+	        const walker = document.createTreeWalker(limiter.get(0), NodeFilter.SHOW_TEXT, null, false);
+	        const textNodes = [];
+	        while (walker.nextNode()) textNodes.push(walker.currentNode);
+	        textNodes.forEach(node => {
+	            const words = node.nodeValue.split(/([\s\-.,;!?]+)/);
+	            const fragment = document.createDocumentFragment();
+	            words.forEach(word => {
+	                if (!word || /^[\s\-.,;!?]+$/.test(word)) { fragment.appendChild(document.createTextNode(word)); return; }
+	                const lowerWord = word.toLowerCase();
+	                let shouldHighlight = searchWords.some(sw => lowerWord === sw || (sw.length > 3 && isFuzzyMatch(lowerWord, sw)));
+	                if (shouldHighlight) {
+	                    const span = document.createElement('span');
+	                    span.className = 'highlight'; span.textContent = word; fragment.appendChild(span);
+	                } else { fragment.appendChild(document.createTextNode(word)); }
+	            });
+	            node.parentNode.replaceChild(fragment, node);
+	        });
+	    };
+
+	    const performSearch = function() {
+	        const searchTerm = searchInput.val().trim().toLowerCase();
+	        if (searchTerm === '') { searchResults.text(''); restoreOriginalState(); $('.post.show').show(); return; }
+	        const searchWords = searchTerm.split(/[\s\-.,;!?]+/).filter(w => w.length > 0);
+	        let foundCount = 0;
+	        $('.post.show').each(function() {
+	            if (containsAllWords(limiterData[$(this).attr('data-id')].text, searchWords)) { 
+	                highlightMatches($(this), searchWords); $(this).show(); foundCount++; 
+	            } else { $(this).hide(); }
+	        });
+	        searchResults.text(foundCount > 0 ? `Найдено постов: ${foundCount}` : 'Ничего не найдено');
+	    };
+
+	    searchInput.on('keyup', function(e) { if (e.key === 'Enter') performSearch(); });
+	    let searchTimeout;
+	    searchInput.on('input', function() { clearTimeout(searchTimeout); searchTimeout = setTimeout(performSearch, 300); });
+	    $(document).on('filterChanged', performSearch);
+	});
+	</script>
+	</body>
+	</html>
+	
