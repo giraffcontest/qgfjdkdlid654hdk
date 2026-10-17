@@ -21,6 +21,7 @@
 	.line1 { position: relative; margin-block: 15px; width: 100%; height: 1px; background-color: rgb(180, 180, 180); }
 	.profile_post_size { display: flex; align-items: center; }
 	.profile_post_size img { width: 40px; border-radius: 50px; }
+	.likes-contest .profile_post_pic img { border: 3px solid #4CAF50; box-shadow: 0 0 10px rgba(76, 175, 80, 0.6); }
 	.profile_post_pic a { display: flex; justify-content: center; text-align: center; height: 100%; font-size: 15px; color: red; }
 	.profile_post_name_status { margin-left: 8px; }
 	.profile_post_name_status p { font-size: 14px; color: #7f7f7f; }
@@ -50,6 +51,21 @@
 	.btn iconify-icon { font-size: 20px; color: #46588d; margin-right: 8px; }
 	.btn.active { background-color: #4CAF50; color: white; }
 	.btn.active iconify-icon { color: white; }
+	@media (min-width: 600px) {
+		.buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+		.buttons .btn { margin-bottom: 0; }
+	}
+	.repost-filter-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+	.repost-filter-btn { padding: 10px; border: none; cursor: pointer; width: 100%; text-align: center; display: flex; justify-content: center; align-items: center; background-color: #f0f0f0; color: #46588d; border-radius: 8px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 14px; transition: background-color 0.2s, color 0.2s; }
+	.repost-filter-btn.active { background-color: #4CAF50; color: white; }
+	.repost-filter-btn .check-icon { margin-right: 8px; font-size: 16px; }
+	@media (min-width: 600px) {
+		.repost-filter-group { flex-direction: row; }
+		.repost-filter-btn { flex: 1; }
+	}
+	.reset-filters-btn { padding: 10px; border: none; cursor: pointer; width: 100%; margin-bottom: 10px; text-align: center; display: flex; justify-content: center; align-items: center; background-color: #e8e8ec; color: #3d4d7a; border-radius: 8px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 14px; font-weight: 500; transition: background-color 0.2s; }
+	.reset-filters-btn:hover { background-color: #dcdce0; }
+	.reset-filters-btn iconify-icon { font-size: 18px; margin-right: 8px; color: #3d4d7a; }
 	.post { padding: 10px; margin-bottom: 10px; display: none; }
 	.post.show { display: flex; }
 	select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background-color: #fff; }
@@ -57,6 +73,9 @@
 	#search-input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
 	#search-results { margin-top: 10px; color: #7f7f7f; font-size: 14px; }
 	.highlight { background-color: yellow; padding: 0 2px; }
+	#scroll-to-top { position: fixed; right: 20px; bottom: 20px; width: 50px; height: 50px; border-radius: 50%; background-color: #46588d; color: white; border: none; cursor: pointer; font-size: 24px; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); z-index: 1000; transition: opacity 0.3s, transform 0.3s; opacity: 0; transform: translateY(20px); }
+	#scroll-to-top.visible { display: flex; opacity: 1; transform: translateY(0); }
+	#scroll-to-top:hover { background-color: #3a4a78; }
 	</style>
 
 	        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -109,6 +128,27 @@
 	            <div class="info_middle2" style="--accent-color: #D00903">
 	                <div class="info_middle-left2">
 	                    <br>
+	                    <p>Тип конкурса:</p>
+	                    <br>
+	                    <div class="repost-filter-group">
+	                        <button class="repost-filter-btn active" data-repost-filter="all">
+	                            <span class="check-icon">☑</span>
+	                            Показать все
+	                        </button>
+	                        <button class="repost-filter-btn" data-repost-filter="no">
+	                            <span class="check-icon">☐</span>
+	                            Без репоста
+	                        </button>
+	                        <button class="repost-filter-btn" data-repost-filter="yes">
+	                            <span class="check-icon">☐</span>
+	                            С репостами
+	                        </button>
+	                    </div>
+	                    <button class="reset-filters-btn" id="reset-filters-btn">
+	                        <iconify-icon icon="ph:x-circle"></iconify-icon>
+	                        Сбросить все фильтры
+	                    </button>
+	                    <br>
 	                    <p>Выберите тематики, которые вас интересуют:</p>
 	                    <br>
 	                    <div class="buttons">
@@ -140,6 +180,8 @@
 	        </div>
 	    </div>
 
+	    <button id="scroll-to-top" title="Наверх">↑</button>
+
 	    <script>
 	$(document).ready(function() {
 	    const observer = new IntersectionObserver((entries, observer) => {
@@ -153,34 +195,102 @@
 	    }, { rootMargin: '0px 0px 2000px 0px' });
 	    $('.lazy').each(function() { observer.observe(this); });
 
-	    $('.btn').click(function() {
-	        $(this).toggleClass('active');
-	        let filters = [];
-	        $('.btn.active').each(function() { filters.push($(this).data('filter')); });
+	    function applyFilters() {
+	        let activeThemes = [];
+	        $('.btn[data-filter^="theme_"].active').each(function() {
+	            activeThemes.push($(this).data('filter'));
+	        });
+
+	        let selectedCity = $('#city-select').find(':selected').data('filter');
+	        let hasCityFilter = selectedCity && selectedCity !== 'city_all';
+
+	        let repostFilter = $('.repost-filter-btn.active').data('repost-filter');
+	        let hasRepostFilter = repostFilter && repostFilter !== 'all';
+
+	        if (activeThemes.length === 0 && !hasCityFilter && !hasRepostFilter) {
+	            $('.post').removeClass('show');
+	            $(document).trigger('filterChanged');
+	            return;
+	        }
+
 	        $('.post').each(function() {
 	            let post = $(this);
-	            let show = filters.length === 0;
-	            for (let i = 0; i < filters.length; i++) {
-	                if (post.hasClass(filters[i])) { show = true; break; }
-	            }
-	            if (show) post.addClass('show'); else post.removeClass('show');
-	        });
-	        $(document).trigger('filterChanged');
-	    });
+	            let show = true;
 
-	    $('#city-select').on('change', function() {
-	        var selectedFilter = $(this).find(':selected').data('filter');
-	        $('.post').each(function() {
-	            var post = $(this);
-	            if (selectedFilter === 'city_all' || post.hasClass(selectedFilter)) {
+	            if (activeThemes.length > 0) {
+	                let themeMatch = false;
+	                for (let i = 0; i < activeThemes.length; i++) {
+	                    if (post.hasClass(activeThemes[i])) {
+	                        themeMatch = true;
+	                        break;
+	                    }
+	                }
+	                if (!themeMatch) show = false;
+	            }
+
+	            if (hasCityFilter) {
+	                if (!post.hasClass(selectedCity)) {
+	                    show = false;
+	                }
+	            }
+
+	            if (repostFilter === 'no') {
+	                if (post.attr('data-likes') !== '1') {
+	                    show = false;
+	                }
+	            } else if (repostFilter === 'yes') {
+	                if (post.attr('data-likes') === '1') {
+	                    show = false;
+	                }
+	            }
+
+	            if (show) {
 	                post.addClass('show');
 	            } else {
 	                post.removeClass('show');
 	            }
 	        });
+
 	        $(document).trigger('filterChanged');
+	    }
+
+	    $('.repost-filter-btn').click(function() {
+	        $('.repost-filter-btn').removeClass('active').find('.check-icon').text('☐');
+	        $(this).addClass('active').find('.check-icon').text('☑');
+	        applyFilters();
 	    });
-	    $('.post').addClass('show');
+
+	    $('.btn[data-filter^="theme_"]').click(function() {
+	        $(this).toggleClass('active');
+	        applyFilters();
+	    });
+
+	    $('#city-select').on('change', function() {
+	        applyFilters();
+	    });
+
+	    $('#reset-filters-btn').click(function() {
+	        $('.btn[data-filter^="theme_"].active').removeClass('active');
+	        $('#city-select').val($('#city-select option:first').val());
+	        $('.repost-filter-btn').removeClass('active').find('.check-icon').text('☐');
+	        $('.repost-filter-btn[data-repost-filter="all"]').addClass('active').find('.check-icon').text('☑');
+	        applyFilters();
+	    });
+
+	    applyFilters();
+
+	    const scrollToTopBtn = $('#scroll-to-top');
+	    $(window).on('scroll', function() {
+	        if ($(this).scrollTop() > 300) {
+	            scrollToTopBtn.addClass('visible');
+	        } else {
+	            scrollToTopBtn.removeClass('visible');
+	        }
+	    });
+
+	    scrollToTopBtn.click(function() {
+	        $('html, body').animate({ scrollTop: 0 }, 400);
+	    });
 	});
 
 	$(document).ready(function() {
@@ -196,7 +306,12 @@
 	    });
 
 	    const restoreOriginalState = function() {
-	        $('.post').each(function() { $(this).find('.limiter').html(limiterData[$(this).attr('data-id')].html); });
+	        $('.post').each(function() { 
+	            const id = $(this).attr('data-id');
+	            if (limiterData[id]) {
+	                $(this).find('.limiter').html(limiterData[id].html); 
+	            }
+	        });
 	    };
 
 	    const isFuzzyMatch = function(textWord, searchWord) {
@@ -214,6 +329,7 @@
 
 	    const highlightMatches = function(post, searchWords) {
 	        const id = post.attr('data-id');
+	        if (!limiterData[id]) return;
 	        const limiter = post.find('.limiter');
 	        limiter.html(limiterData[id].html);
 	        const walker = document.createTreeWalker(limiter.get(0), NodeFilter.SHOW_TEXT, null, false);
@@ -241,7 +357,8 @@
 	        const searchWords = searchTerm.split(/[\s\-.,;!?]+/).filter(w => w.length > 0);
 	        let foundCount = 0;
 	        $('.post.show').each(function() {
-	            if (containsAllWords(limiterData[$(this).attr('data-id')].text, searchWords)) { 
+	            const id = $(this).attr('data-id');
+	            if (limiterData[id] && containsAllWords(limiterData[id].text, searchWords)) { 
 	                highlightMatches($(this), searchWords); $(this).show(); foundCount++; 
 	            } else { $(this).hide(); }
 	        });
